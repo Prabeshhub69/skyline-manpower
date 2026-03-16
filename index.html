@@ -20,268 +20,266 @@
     <style>
         .partners-section {
             padding: 100px 0;
+            background: linear-gradient(180deg, #f8fafd 0%, #ffffff 100%);
         }
 
-        .partners-layout {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 0;
-            margin-top: 56px;
-            border: 1.5px solid #e8edf6;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #fff;
-            min-height: 420px;
+        /* Category Tabs */
+        .partners-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            flex-wrap: wrap;
         }
 
-        @media (max-width: 768px) {
-            .partners-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .partners-country-list {
-            border-right: 1.5px solid #e8edf6;
-            background: #f8fafd;
-        }
-
-        .country-list-item {
+        .partner-tab {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 22px 24px;
+            gap: 10px;
+            padding: 14px 28px;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            background: #fff;
             cursor: pointer;
-            border-bottom: 1px solid #eef1f8;
-            transition: background 0.18s;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--tab-color, #3b82f6), var(--tab-color-end, #60a5fa));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 60px;
+        }
+
+        .partner-tab:hover {
+            border-color: var(--tab-color, #3b82f6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .partner-tab.active {
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px color-mix(in srgb, var(--tab-color, #3b82f6) 35%, transparent);
+        }
+
+        .partner-tab.active::before {
+            opacity: 1;
+        }
+
+        .partner-tab i,
+        .partner-tab span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .partner-tab i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-tab.active i {
+            transform: scale(1.1);
+        }
+
+        /* Logos Grid Area */
+        .partners-logo-area {
+            margin-top: 48px;
+            min-height: 280px;
             position: relative;
         }
 
-        .country-list-item:last-child {
-            border-bottom: none;
+        .partners-category-panel {
+            display: none;
+            animation: categoryReveal 0.45s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .country-list-item:hover {
-            background: #eef3fb;
+        .partners-category-panel.active {
+            display: block;
         }
 
-        .country-list-item.active {
-            background: #fff;
-            border-right: 3px solid var(--item-accent, #2563eb);
-        }
-
-        .country-list-item.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--item-accent, #2563eb);
-            border-radius: 0 2px 2px 0;
-        }
-
-        .cli-flag {
-            font-size: 28px;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-        .cli-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .cli-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1a2340;
-            margin: 0 0 2px;
-        }
-
-        .cli-region {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.9px;
-            color: #9aa3ba;
-        }
-
-        .cli-count {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--item-accent, #2563eb);
-            background: rgba(37, 99, 235, 0.08);
-            padding: 3px 8px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .cli-arrow {
-            font-size: 14px;
-            color: #c5cbdc;
-            margin-left: 6px;
-            transition: transform 0.18s, color 0.18s;
-        }
-
-        .country-list-item.active .cli-arrow,
-        .country-list-item:hover .cli-arrow {
-            color: var(--item-accent, #2563eb);
-            transform: translateX(3px);
-        }
-
-        .partners-logo-panel {
-            padding: 36px 36px 28px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .plp-header {
-            margin-bottom: 28px;
-        }
-
-        .plp-country-label {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #9aa3ba;
-            margin: 0 0 6px;
-        }
-
-        .plp-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a2340;
-            margin: 0 0 4px;
-        }
-
-        .plp-sectors {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin-top: 8px;
-        }
-
-        .plp-tag {
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 10px;
-            border-radius: 20px;
-            letter-spacing: 0.3px;
-        }
-
-        .plp-divider {
-            height: 1px;
-            background: #eef1f8;
-            margin: 0 0 28px;
-        }
-
-        .plp-logos-label {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #9aa3ba;
-            margin: 0 0 20px;
-        }
-
-        .plp-logos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 14px;
-        }
-
-        .partner-logo-tile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 18px 12px 14px;
-            border: 1.5px solid #e8edf6;
-            border-radius: 12px;
-            background: #fafbff;
-            transition: border-color 0.2s, transform 0.18s;
-            cursor: default;
-        }
-
-        .partner-logo-tile:hover {
-            border-color: var(--tile-accent, #2563eb);
-            transform: translateY(-2px);
-        }
-
-        .plt-logo-mark {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            flex-shrink: 0;
-        }
-
-        .plt-name {
-            font-size: 12px;
-            font-weight: 600;
-            color: #3a4260;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        .plt-sector {
-            font-size: 10px;
-            color: #9aa3ba;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        .partners-footer-note {
-            margin-top: 36px;
-            padding-top: 20px;
-            border-top: 1px solid #eef1f8;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .pfn-trust {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .pfn-item {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-size: 12.5px;
-            color: #7b8298;
-            font-weight: 500;
-        }
-
-        .pfn-item i {
-            font-size: 13px;
-            color: #4f85e8;
-        }
-
-        .panel-fade-in {
-            animation: panelFade 0.28s ease;
-        }
-
-        @keyframes panelFade {
+        @keyframes categoryReveal {
             from {
                 opacity: 0;
-                transform: translateY(8px);
+                transform: translateY(16px);
             }
-
             to {
                 opacity: 1;
                 transform: none;
+            }
+        }
+
+        .partners-category-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .category-subtitle {
+            font-size: 15px;
+            color: #94a3b8;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .partners-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .partner-logo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 28px 20px 22px;
+            background: #fff;
+            border: 1.5px solid #e8edf6;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-logo-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--card-accent, #3b82f6), var(--card-accent-end, #60a5fa));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .partner-logo-card:hover {
+            border-color: color-mix(in srgb, var(--card-accent, #3b82f6) 40%, transparent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .partner-logo-card:hover::after {
+            opacity: 1;
+        }
+
+        .partner-logo-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            object-fit: contain;
+            background: #f8fafd;
+            padding: 8px;
+            border: 1px solid #f0f3f9;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-logo-card:hover .partner-logo-img {
+            transform: scale(1.08);
+        }
+
+        .partner-logo-placeholder {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-logo-card:hover .partner-logo-placeholder {
+            transform: scale(1.08);
+        }
+
+        .partner-card-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            text-align: center;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .partner-card-type {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #94a3b8;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Trust Badges */
+        .partners-trust-bar {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #e8edf6;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .trust-badge i {
+            font-size: 15px;
+            color: #3b82f6;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .partners-tabs {
+                gap: 8px;
+            }
+            .partner-tab {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+            .partner-tab i {
+                font-size: 15px;
+            }
+            .partners-logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .partner-logo-card {
+                padding: 20px 12px 16px;
+            }
+            .partner-logo-placeholder,
+            .partner-logo-img {
+                width: 56px;
+                height: 56px;
+            }
+            .partners-trust-bar {
+                gap: 16px;
             }
         }
     </style>
@@ -340,7 +338,7 @@
 
         <div class="container hero-container">
             <div class="hero-content fade-in-up">
-                <div class="badge">Govt. Approved Agency</div>
+                <!-- <div class="badge">Govt. Approved Agency</div> -->
                 <h1 class="hero-title">Connecting Nepal's Best with <span>Global Opportunities</span></h1>
                 <p class="hero-subtitle">Based in Kathmandu, we are a leading overseas manpower agency specializing in
                     deploying dedicated Nepali professionals and workers to Qatar, Malaysia, UAE, and Saudi Arabia.</p>
@@ -710,171 +708,95 @@
         </div>
     </section>
 
-    <!-- GLOBAL PARTNERS BY COUNTRY -->
-    <section class="partners-section bg-light section-padding" id="partners">
-        <div class="container">
-
-            <div class="section-header text-center fade-in-up">
-                <div class="badge">Our Network</div>
-                <h2 class="section-title">Global Partners <span>by Country</span></h2>
-                <p class="section-subtitle">Trusted employer relationships across four major destinations — built on
-                    years of ethical, reliable placements.</p>
-            </div>
-
-            <div class="partners-layout fade-in-up delay-100">
-
-                <!-- LEFT: Country List -->
-                <div class="partners-country-list">
-                    <div class="country-list-item active" data-country="qatar" style="--item-accent:#8b1a36;"
-                        onclick="selectCountry('qatar')">
-                        <span class="cli-flag">&#127478;&#127462;</span>
-                        <div class="cli-info">
-                            <p class="cli-name">Qatar</p>
-                            <p class="cli-region">Middle East</p>
-                        </div>
-                        <span class="cli-count" style="background:rgba(139,26,54,0.1);color:#8b1a36;">5 partners</span>
-                        <i class="fa-solid fa-chevron-right cli-arrow"></i>
-                    </div>
-                    <div class="country-list-item" data-country="uae" style="--item-accent:#006400;"
-                        onclick="selectCountry('uae')">
-                        <span class="cli-flag">&#127462;&#127466;</span>
-                        <div class="cli-info">
-                            <p class="cli-name">UAE</p>
-                            <p class="cli-region">Middle East</p>
-                        </div>
-                        <span class="cli-count" style="background:rgba(0,100,0,0.1);color:#006400;">5 partners</span>
-                        <i class="fa-solid fa-chevron-right cli-arrow"></i>
-                    </div>
-                    <div class="country-list-item" data-country="saudi" style="--item-accent:#1b5e20;"
-                        onclick="selectCountry('saudi')">
-                        <span class="cli-flag">&#127480;&#127462;</span>
-                        <div class="cli-info">
-                            <p class="cli-name">Saudi Arabia</p>
-                            <p class="cli-region">Middle East</p>
-                        </div>
-                        <span class="cli-count" style="background:rgba(27,94,32,0.1);color:#1b5e20;">5 partners</span>
-                        <i class="fa-solid fa-chevron-right cli-arrow"></i>
-                    </div>
-                    <div class="country-list-item" data-country="malaysia" style="--item-accent:#cc0001;"
-                        onclick="selectCountry('malaysia')">
-                        <span class="cli-flag">&#127474;&#127486;</span>
-                        <div class="cli-info">
-                            <p class="cli-name">Malaysia</p>
-                            <p class="cli-region">Southeast Asia</p>
-                        </div>
-                        <span class="cli-count" style="background:rgba(204,0,1,0.1);color:#cc0001;">5 partners</span>
-                        <i class="fa-solid fa-chevron-right cli-arrow"></i>
-                    </div>
-                </div>
-
-                <!-- RIGHT: Logo Panel -->
-                <div class="partners-logo-panel" id="partnersPanel">
-                    <!-- injected by JS -->
-                </div>
-
-            </div><!-- /.partners-layout -->
-
-            <div style="margin-top:32px;text-align:center;" class="fade-in-up delay-200">
-                <a href="hire-talent.html" class="btn btn-primary">Become a Partner Employer</a>
-            </div>
-
-        </div>
-    </section>
+    
 
     <script>
-        var partnerData = {
-            qatar: {
-                name: 'Qatar',
-                region: 'Middle East',
-                accent: '#8b1a36',
-                accentBg: 'rgba(139,26,54,0.08)',
-                sectors: ['Construction', 'Oil & Gas', 'MEP'],
+        var categoryData = {
+            it: {
+                label: 'Information Technology',
+                subtitle: 'Technology partners across software, networking, and IT services',
+                accent: '#6366f1',
+                accentEnd: '#818cf8',
                 partners: [
-                    { initials: 'QB', name: 'Qataria Builders', sector: 'Construction', bg: '#fde8ec', fg: '#8b1a36' },
-                    { initials: 'AB', name: 'Al Balagh Contracting', sector: 'Civil Works', bg: '#fde8ec', fg: '#8b1a36' },
-                    { initials: 'QC', name: 'Qatar Cool', sector: 'MEP / HVAC', bg: '#fde8ec', fg: '#8b1a36' },
-                    { initials: 'DM', name: 'Doha Metro Consortium', sector: 'Infrastructure', bg: '#fde8ec', fg: '#8b1a36' },
-                    { initials: 'HB', name: 'HBK Contracting', sector: 'Oil & Gas', bg: '#fde8ec', fg: '#8b1a36' }
+                    { initials: 'TS', name: 'TechSphere Solutions', type: 'Software Dev', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'NW', name: 'NetWave Systems', type: 'Networking', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'CD', name: 'CloudDrive Inc.', type: 'Cloud Services', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'DX', name: 'DataX Analytics', type: 'Data & AI', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'CW', name: 'CodeWorks Ltd.', type: 'IT Staffing', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'SG', name: 'SmartGrid Tech', type: 'IoT Solutions', bg: '#eef2ff', fg: '#6366f1' }
                 ]
             },
-            uae: {
-                name: 'UAE',
-                region: 'Middle East',
-                accent: '#006400',
-                accentBg: 'rgba(0,100,0,0.08)',
-                sectors: ['Hospitality', 'Security', 'Facility Mgmt.'],
+            construction: {
+                label: 'Construction',
+                subtitle: 'Leading construction and infrastructure companies across the Gulf region',
+                accent: '#f59e0b',
+                accentEnd: '#fbbf24',
                 partners: [
-                    { initials: 'OH', name: 'Oasis Hotels & Resorts', sector: 'Hospitality', bg: '#e6f4ea', fg: '#006400' },
-                    { initials: 'G4', name: 'G4S Secure Solutions', sector: 'Security', bg: '#e6f4ea', fg: '#006400' },
-                    { initials: 'EF', name: 'Emaar Facilities Mgmt.', sector: 'Facility Mgmt.', bg: '#e6f4ea', fg: '#006400' },
-                    { initials: 'TG', name: 'Transguard Group', sector: 'Security', bg: '#e6f4ea', fg: '#006400' },
-                    { initials: 'AF', name: 'Al Futtaim Engineering', sector: 'Engineering', bg: '#e6f4ea', fg: '#006400' }
+                    { initials: 'QB', name: 'Qataria Builders', type: 'Civil Works', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'AB', name: 'Al Balagh Contracting', type: 'Infrastructure', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'HB', name: 'HBK Contracting', type: 'Oil & Gas', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'SB', name: 'Saudi BinLadin Group', type: 'Mega Projects', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'NM', name: 'NEOM Project Partners', type: 'Construction', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'IJ', name: 'IJM Corporation', type: 'Infrastructure', bg: '#fffbeb', fg: '#d97706' }
                 ]
             },
-            saudi: {
-                name: 'Saudi Arabia',
-                region: 'Middle East',
-                accent: '#1b5e20',
-                accentBg: 'rgba(27,94,32,0.08)',
-                sectors: ['Oil & Gas', 'Construction', 'Industrial'],
+            health: {
+                label: 'Healthcare',
+                subtitle: 'Trusted hospital groups and healthcare organizations worldwide',
+                accent: '#10b981',
+                accentEnd: '#34d399',
                 partners: [
-                    { initials: 'SA', name: 'Saudi Aramco (Contr.)', sector: 'Oil & Gas', bg: '#e8f5e9', fg: '#1b5e20' },
-                    { initials: 'NM', name: 'NEOM Project Partners', sector: 'Mega Construction', bg: '#e8f5e9', fg: '#1b5e20' },
-                    { initials: 'AR', name: 'Al-Rashid Trading', sector: 'Trading & Cont.', bg: '#e8f5e9', fg: '#1b5e20' },
-                    { initials: 'SB', name: 'Saudi BinLadin Group', sector: 'Construction', bg: '#e8f5e9', fg: '#1b5e20' },
-                    { initials: 'AK', name: 'Alkhorayef Industries', sector: 'Industrial', bg: '#e8f5e9', fg: '#1b5e20' }
+                    { initials: 'MH', name: 'MedHorizon Group', type: 'Hospital Chain', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'GH', name: 'Gulf Health Services', type: 'Healthcare', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'AC', name: 'AsiaCare Medical', type: 'Clinics', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'PH', name: 'PrimeCare Hospitals', type: 'Hospitals', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'WH', name: 'WellLife Health', type: 'Senior Care', bg: '#ecfdf5', fg: '#059669' }
                 ]
             },
-            malaysia: {
-                name: 'Malaysia',
-                region: 'Southeast Asia',
-                accent: '#cc0001',
-                accentBg: 'rgba(204,0,1,0.08)',
-                sectors: ['Manufacturing', 'Logistics', 'Plantations'],
+            others: {
+                label: 'Other Industries',
+                subtitle: 'Hospitality, security, logistics, manufacturing & more',
+                accent: '#ec4899',
+                accentEnd: '#f472b6',
                 partners: [
-                    { initials: 'HT', name: 'Horizon Tech Industries', sector: 'Manufacturing', bg: '#fdecea', fg: '#cc0001' },
-                    { initials: 'IJ', name: 'IJM Corporation Berhad', sector: 'Construction', bg: '#fdecea', fg: '#cc0001' },
-                    { initials: 'TG', name: 'Top Glove Corporation', sector: 'Manufacturing', bg: '#fdecea', fg: '#cc0001' },
-                    { initials: 'GG', name: 'Gamuda Group', sector: 'Infrastructure', bg: '#fdecea', fg: '#cc0001' },
-                    { initials: 'WP', name: 'Westports Malaysia', sector: 'Logistics', bg: '#fdecea', fg: '#cc0001' }
+                    { initials: 'OH', name: 'Oasis Hotels & Resorts', type: 'Hospitality', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'G4', name: 'G4S Secure Solutions', type: 'Security', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'TG', name: 'Top Glove Corp.', type: 'Manufacturing', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'WP', name: 'Westports Malaysia', type: 'Logistics', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'EF', name: 'Emaar Facilities', type: 'Facility Mgmt.', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'TG', name: 'Transguard Group', type: 'Security', bg: '#fdf2f8', fg: '#db2777' }
                 ]
             }
         };
 
-        function selectCountry(key) {
-            document.querySelectorAll('.country-list-item').forEach(function (el) {
-                el.classList.toggle('active', el.dataset.country === key);
+        function selectCategory(key) {
+            // Update active tab
+            document.querySelectorAll('.partner-tab').forEach(function (el) {
+                el.classList.toggle('active', el.dataset.category === key);
             });
-            var d = partnerData[key];
-            var sectorTags = d.sectors.map(function (s) {
-                return '<span class="plp-tag" style="background:' + d.accentBg + ';color:' + d.accent + '">' + s + '</span>';
-            }).join('');
-            var logoTiles = d.partners.map(function (p) {
-                return '<div class="partner-logo-tile" style="--tile-accent:' + d.accent + '">' +
-                    '<div class="plt-logo-mark" style="background:' + p.bg + ';color:' + p.fg + '">' + p.initials + '</div>' +
-                    '<span class="plt-name">' + p.name + '</span>' +
-                    '<span class="plt-sector">' + p.sector + '</span>' +
+
+            var d = categoryData[key];
+
+            // Build cards
+            var cards = d.partners.map(function (p) {
+                return '<div class="partner-logo-card" style="--card-accent:' + d.accent + '; --card-accent-end:' + d.accentEnd + '">' +
+                    '<div class="partner-logo-placeholder" style="background:' + p.bg + ';color:' + p.fg + '">' + p.initials + '</div>' +
+                    '<p class="partner-card-name">' + p.name + '</p>' +
+                    '<p class="partner-card-type">' + p.type + '</p>' +
                     '</div>';
             }).join('');
-            document.getElementById('partnersPanel').innerHTML =
-                '<div class="plp-header panel-fade-in">' +
-                '<p class="plp-country-label">' + d.region + '</p>' +
-                '<p class="plp-title">' + d.name + ' Partner Employers</p>' +
-                '<div class="plp-sectors">' + sectorTags + '</div>' +
+
+            document.getElementById('partnersLogoArea').innerHTML =
+                '<div class="partners-category-panel active">' +
+                '<div class="partners-category-header">' +
+                '<p class="category-subtitle">' + d.subtitle + '</p>' +
                 '</div>' +
-                '<div class="plp-divider"></div>' +
-                '<p class="plp-logos-label panel-fade-in">Partner companies</p>' +
-                '<div class="plp-logos-grid panel-fade-in">' + logoTiles + '</div>' +
-                '<div class="partners-footer-note panel-fade-in">' +
-                '<div class="pfn-trust">' +
-                '<div class="pfn-item"><i class="fa-solid fa-shield-halved"></i><span>Ethical contracts</span></div>' +
-                '<div class="pfn-item"><i class="fa-solid fa-file-contract"></i><span>MoU-backed</span></div>' +
-                '<div class="pfn-item"><i class="fa-solid fa-rotate"></i><span>90%+ repeat rate</span></div>' +
-                '</div>' +
+                '<div class="partners-logos-grid">' + cards + '</div>' +
                 '</div>';
         }
 
-        selectCountry('qatar');
+        // Default selection
+        selectCategory('it');
     </script>
 
     <!-- Job Roles Section -->
@@ -897,11 +819,8 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #3b82f6;">
                                 <div class="role-image-box">
-                                    <img src="hero_business_professionals.webp" alt="Construction Jobs"
+                                    <img src="construction.jpg" alt="Construction Jobs"
                                         class="role-img">
-                                    <div class="role-icon-overlay">
-                                        <i class="fa-solid fa-helmet-safety"></i>
-                                    </div>
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Construction</h3>
@@ -918,10 +837,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #f59e0b;">
                                 <div class="role-image-box">
-                                    <img src="about_office_team.webp" alt="Hospitality Jobs" class="role-img">
-                                    <div class="role-icon-overlay">
-                                        <i class="fa-solid fa-utensils"></i>
-                                    </div>
+                                    <img src="hospitality.jpg" alt="Hospitality Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Hospitality</h3>
@@ -938,10 +854,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #ef4444;">
                                 <div class="role-image-box">
-                                    <img src="hero_business_professionals.webp" alt="Security Jobs" class="role-img">
-                                    <div class="role-icon-overlay">
-                                        <i class="fa-solid fa-shield-halved"></i>
-                                    </div>
+                                    <img src="security.jpg" alt="Security Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Security Services</h3>
@@ -958,10 +871,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #10b981;">
                                 <div class="role-image-box">
-                                    <img src="about_office_team.webp" alt="Logistics Jobs" class="role-img">
-                                    <div class="role-icon-overlay">
-                                        <i class="fa-solid fa-truck-fast"></i>
-                                    </div>
+                                    <img src="logisistic.jpg" alt="Logistics Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Logistics</h3>
@@ -978,10 +888,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #8b5cf6;">
                                 <div class="role-image-box">
-                                    <img src="hero_business_professionals.webp" alt="Healthcare Jobs" class="role-img">
-                                    <div class="role-icon-overlay">
-                                        <i class="fa-solid fa-user-nurse"></i>
-                                    </div>
+                                    <img src="hospital.jpg" alt="Healthcare Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Healthcare</h3>
@@ -998,10 +905,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #ec4899;">
                                 <div class="role-image-box">
-                                    <img src="about_office_team.webp" alt="Maintenance Jobs" class="role-img">
-                                    <div class="role-icon-overlay">
-                                        <i class="fa-solid fa-tools"></i>
-                                    </div>
+                                    <img src="technician.jpg" alt="Maintenance Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Maintenance</h3>
@@ -1018,10 +922,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #6366f1;">
                                 <div class="role-image-box">
-                                    <img src="hero_business_professionals.webp" alt="Office Jobs" class="role-img">
-                                    <div class="role-icon-overlay">
-                                        <i class="fa-solid fa-briefcase"></i>
-                                    </div>
+                                    <img src="office.jpg" alt="Office Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Office Admin</h3>
@@ -1078,6 +979,53 @@
                     <p class="stat-card-label">Partner Companies</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL PARTNERS BY INDUSTRY -->
+    <section class="partners-section bg-light section-padding" id="partners">
+        <div class="container">
+
+            <div class="section-header text-center fade-in-up">
+                <div class="badge">Our Network</div>
+                <h2 class="section-title">Global Partners <span>by Industry</span></h2>
+                <p class="section-subtitle">We work with leading companies across multiple industries — delivering skilled,
+                    pre-vetted talent for every sector.</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="partners-tabs fade-in-up delay-100">
+                <button class="partner-tab active" data-category="it"
+                    style="--tab-color:#6366f1; --tab-color-end:#818cf8;" onclick="selectCategory('it')">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>IT</span>
+                </button>
+                <button class="partner-tab" data-category="construction"
+                    style="--tab-color:#f59e0b; --tab-color-end:#fbbf24;" onclick="selectCategory('construction')">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                    <span>Construction</span>
+                </button>
+                <button class="partner-tab" data-category="health"
+                    style="--tab-color:#10b981; --tab-color-end:#34d399;" onclick="selectCategory('health')">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Health</span>
+                </button>
+                <button class="partner-tab" data-category="others"
+                    style="--tab-color:#ec4899; --tab-color-end:#f472b6;" onclick="selectCategory('others')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Others</span>
+                </button>
+            </div>
+
+            <!-- Logo Panels -->
+            <div class="partners-logo-area fade-in-up delay-200" id="partnersLogoArea">
+                <!-- Dynamically injected by JS -->
+            </div>
+
+            <div style="margin-top:32px;text-align:center;" class="fade-in-up delay-200">
+                <a href="contact.html" class="btn btn-primary">Become a Partner Employer</a>
+            </div>
+
         </div>
     </section>
 
