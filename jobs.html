@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Jobs | Skyline</title>
+    <meta name="description" content="Explore overseas jobs in Qatar, UAE, Malaysia, and Saudi Arabia for Nepali workers with Skyline.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Specific Page Styles will be moved to styles.css later */
+        .page-header {
+            padding: 10rem 0 5rem;
+            background: linear-gradient(135deg, var(--bg-light), var(--bg-main));
+            text-align: center;
+        }
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Jobs specific */
+        .jobs-section { padding: var(--section-pad) 0; }
+        .jobs-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .job-filter-btn {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .job-filter-btn:hover, .job-filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        .jobs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .job-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        .job-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        .job-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .job-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .job-meta i { margin-right: 0.5rem; color: var(--accent); }
+        .job-tags {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .job-tags span {
+            background: var(--bg-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .job-card { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+            .job-action { width: 100%; }
+            .job-action .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="jobs.html" class="active">Jobs</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="hire-talent.html" class="btn btn-primary">Request Manpower</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="services.html" class="mobile-link">Services</a>
+                <a href="about.html" class="mobile-link">About</a>
+                <a href="jobs.html" class="mobile-link">Jobs</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="hire-talent.html" class="btn btn-primary mt-4">Request Manpower</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container fade-in-up">
+            <h1 class="page-title">Overseas <span>Jobs</span></h1>
+            <p class="page-subtitle">Discover the latest career opportunities in Qatar, UAE, Malaysia, and Saudi Arabia.</p>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <div class="jobs-filters fade-in-up">
+                <button class="job-filter-btn active">All</button>
+                <button class="job-filter-btn">Construction</button>
+                <button class="job-filter-btn">Hospitality</button>
+                <button class="job-filter-btn">Security</button>
+                <button class="job-filter-btn">Manufacturing</button>
+            </div>
+
+            <div class="jobs-list">
+                <!-- Job 1 -->
+                <div class="job-card fade-in-up">
+                    <div class="job-info">
+                        <h3>General Construction Workers</h3>
+                        <div class="job-meta">
+                            <span><i class="fa-solid fa-location-dot"></i> Doha, Qatar</span>
+                            <span><i class="fa-solid fa-building"></i> ABC Builders Co.</span>
+                            <span><i class="fa-solid fa-users"></i> Demand: 50 Pax</span>
+                            <span><i class="fa-solid fa-money-bill-wave"></i> Basic: 1000 + 300 QAR</span>
+                        </div>
+                        <div class="job-tags">
+                            <span>No Exp. Req.</span>
+                            <span>Food/Acc provided</span>
+                            <span>2 Yrs Contract</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="contact.html" class="btn btn-primary">Apply / Interview</a>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card fade-in-up delay-100">
+                    <div class="job-info">
+                        <h3>Security Guards (PSBD)</h3>
+                        <div class="job-meta">
+                            <span><i class="fa-solid fa-location-dot"></i> Abu Dhabi, UAE</span>
+                            <span><i class="fa-solid fa-building"></i> Falcon Security Service</span>
+                            <span><i class="fa-solid fa-users"></i> Demand: 30 Pax</span>
+                            <span><i class="fa-solid fa-money-bill-wave"></i> Basic: 2770 AED</span>
+                        </div>
+                        <div class="job-tags">
+                            <span>Height: 5'6"+</span>
+                            <span>English Spoken</span>
+                            <span>2 Yrs Contract</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="contact.html" class="btn btn-primary">Apply / Interview</a>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card fade-in-up delay-200">
+                    <div class="job-info">
+                        <h3>Factory / Production Workers</h3>
+                        <div class="job-meta">
+                            <span><i class="fa-solid fa-location-dot"></i> Kuala Lumpur, Malaysia</span>
+                            <span><i class="fa-solid fa-building"></i> TechMfg SDN BHD</span>
+                            <span><i class="fa-solid fa-users"></i> Demand: 100 Pax</span>
+                            <span><i class="fa-solid fa-money-bill-wave"></i> Basic: 1500 RM + OT</span>
+                        </div>
+                        <div class="job-tags">
+                            <span>Factory</span>
+                            <span>Transport provided</span>
+                            <span>3 Yrs Contract</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="contact.html" class="btn btn-primary">Apply / Interview</a>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-card fade-in-up delay-300">
+                    <div class="job-info">
+                        <h3>Heavy Vehicle Drivers</h3>
+                        <div class="job-meta">
+                            <span><i class="fa-solid fa-location-dot"></i> Riyadh, Saudi Arabia</span>
+                            <span><i class="fa-solid fa-building"></i> Desert Logistics LLC</span>
+                            <span><i class="fa-solid fa-users"></i> Demand: 25 Pax</span>
+                            <span><i class="fa-solid fa-money-bill-wave"></i> Basic: 1800 + Trip Allowances SAR</span>
+                        </div>
+                        <div class="job-tags">
+                            <span>Saudi License Req.</span>
+                            <span>Gulf Exp. Preferred</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="contact.html" class="btn btn-primary">Apply / Interview</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="contact.html" class="btn btn-secondary">Contact our Office for pre-interviews</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box fade-in-up">
+                <div class="cta-content">
+                    <h2 class="cta-title">Looking for specific roles?</h2>
+                    <p class="cta-text">Visit our Kathmandu office with your passport and documents, or send us a message to check eligibility for upcoming interviews.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large bg-white text-primary">Contact Office</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+                    </a>
+                    <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to Qatar, Malaysia, UAE, and Saudi Arabia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Overseas Recruitment</a></li>
+                        <li><a href="services.html">Visa Processing</a></li>
+                        <li><a href="services.html">Trade Testing</a></li>
+                        <li><a href="services.html">Deployment</a></li>
+                        <li><a href="hire-talent.html">Submit Demand</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Licenses</a></li>
+                        <li><a href="jobs.html">Current Openings</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-location-dot"></i><span>Baneshwor, Kathmandu<br>Nepal</span></li>
+                        <li><i class="fa-solid fa-phone"></i><span>+977-1-4XXXXXX</span></li>
+                        <li><i class="fa-solid fa-envelope"></i><span>info@skyline.com.np</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skyline Overseas Manpower Pvt. Ltd. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Trigger animations immediately for the new page since no scrolling is needed for top elements
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const elements = document.querySelectorAll('.fade-in-up');
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

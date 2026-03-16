@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Skyline</title>
+    <meta name="description" content="Get in touch with Skyline, Nepal's premier manpower agency for overseas recruitment. Contact our Kathmandu office today.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 10rem 0 5rem;
+            background: linear-gradient(135deg, var(--bg-light), var(--bg-main));
+            text-align: center;
+        }
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section { padding: var(--section-pad) 0; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+        .contact-info h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        .info-text h4 {
+            color: var(--white);
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        .info-text p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        .contact-form-wrapper {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        .contact-form p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            width: 100%;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            background: var(--white);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="hire-talent.html" class="btn btn-primary">Request Manpower</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="services.html" class="mobile-link">Services</a>
+                <a href="about.html" class="mobile-link">About</a>
+                <a href="jobs.html" class="mobile-link">Jobs</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="hire-talent.html" class="btn btn-primary mt-4">Request Manpower</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container fade-in-up">
+            <h1 class="page-title">Contact <span>Us</span></h1>
+            <p class="page-subtitle">Visit our Kathmandu office or reach out to our team online. We're here to assist clients and candidates alike.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Contact Info -->
+                <div class="contact-info fade-in-up">
+                    <h3>Head Office (Nepal)</h3>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot info-icon"></i>
+                        <div class="info-text">
+                            <h4>Physical Address</h4>
+                            <p>Manpower Building, Baneshwor<br>Kathmandu, Bagmati Province<br>Nepal</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone info-icon"></i>
+                        <div class="info-text">
+                            <h4>Phone Number</h4>
+                            <p>Desk: +977-1-4XXXXXX<br>Mobile/WhatsApp: +977-980XXXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope info-icon"></i>
+                        <div class="info-text">
+                            <h4>Email Address</h4>
+                            <p>Information: info@skyline.com.np<br>Client Demands: cvs@skyline.com.np</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links mt-4" style="margin-top: 3rem;">
+                        <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper fade-in-up delay-100">
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully! Our Kathmandu desk will contact you soon.');">
+                        <h3>Send your Inquiry</h3>
+                        <p>Fill out the form below block, and we will get back to you within 24 working hours.</p>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="Ram" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" placeholder="Bahadur" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="example@domain.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number / WhatsApp</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+977-9800000000">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label class="form-label" for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Visa Query, Interview Schedule, etc." required>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 2rem;">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="How can we assist you today?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 0.5rem;"></i></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+                    </a>
+                    <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to Qatar, Malaysia, UAE, and Saudi Arabia.</p>
+                </div>
+                <!-- ... Footer Links Rest same ... -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Overseas Recruitment</a></li>
+                        <li><a href="services.html">Visa Processing</a></li>
+                        <li><a href="services.html">Trade Testing</a></li>
+                        <li><a href="services.html">Deployment</a></li>
+                        <li><a href="hire-talent.html">Submit Demand</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Licenses</a></li>
+                        <li><a href="jobs.html">Current Openings</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-location-dot"></i><span>Baneshwor, Kathmandu<br>Nepal</span></li>
+                        <li><i class="fa-solid fa-phone"></i><span>+977-1-4XXXXXX</span></li>
+                        <li><i class="fa-solid fa-envelope"></i><span>info@skyline.com.np</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skyline Overseas Manpower Pvt. Ltd. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const elements = document.querySelectorAll('.fade-in-up');
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
