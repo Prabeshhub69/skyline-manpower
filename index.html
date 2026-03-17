@@ -27,7 +27,6 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            background: url('news_bg_map.jpg') center / cover no-repeat;
             box-sizing: border-box;
         }
 
@@ -35,10 +34,10 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg,
-                    rgba(255, 255, 255, 0.94) 0%,
-                    rgba(248, 250, 255, 0.88) 50%,
-                    rgba(238, 244, 255, 0.82) 100%);
+            /* background: linear-gradient(135deg,
+                    rgba(141, 141, 141, 0.94) 0%,
+                    rgba(248, 250, 255, 0.88) 0%,
+                    rgba(56, 56, 56, 0.82) 0%); */
             z-index: 1;
         }
 
@@ -81,58 +80,6 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 4.5vw, 3.75rem);
-            margin-bottom: 1.1rem;
-            letter-spacing: -1.5px;
-            line-height: 1.12;
-            max-width: 820px;
-        }
-
-        .hero-title span {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .hero-subtitle {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 580px;
-            line-height: 1.75;
-            text-align: center;
-        }
-
-        /* Search bar — card style */
-        .hero-search {
-            width: 100%;
-            max-width: 780px;
-            margin-bottom: 2.25rem;
-        }
-
-        .search-form {
-            display: flex;
-            align-items: center;
-            background: #ffffff;
-            padding: 8px 8px 8px 8px;
-            border-radius: 18px;
-            box-shadow: 0 8px 40px rgba(67, 56, 202, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(67, 56, 202, 0.10);
-            flex-wrap: wrap;
-            gap: 0;
-        }
-
-        .search-input-group {
-            display: flex;
-            align-items: center;
-            padding: 10px 18px;
-            flex: 1;
-            min-width: 130px;
         }
 
         .search-input-group i {
@@ -186,28 +133,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .stat-number {
-            font-size: 1.9rem;
-            font-weight: 800;
-            color: var(--secondary);
-            line-height: 1.05;
-        }
-
-        .stat-label {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            line-height: 1.35;
-            text-align: center;
-            margin-top: 3px;
-        }
-
-        .stat-divider {
-            width: 1px;
-            height: 38px;
-            background-color: #e2e8f0;
         }
 
         /* Badge override for hero */
@@ -716,6 +641,7 @@
          HERO SECTION — Full Background Image with White Overlay
          ============================================================ -->
     <section class="hero" id="home">
+        <div class="hero-overlay"></div>
         <div id="particles-js" class="particles-container"></div>
 
         <div class="container hero-container">

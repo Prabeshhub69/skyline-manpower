@@ -395,7 +395,7 @@ h6 {
     position: relative;
     overflow: hidden;
     /* Set your actual hero image here */
-    background: url('construction.jpg') center / cover no-repeat;
+    background: url('worker2.jpg') center / cover no-repeat;
     box-sizing: border-box;
 }
 
@@ -440,6 +440,7 @@ h6 {
 }
 
 .hero-title {
+    color: white;
     font-size: clamp(2rem, 4.5vw, 3.75rem);
     margin-bottom: 1.1rem;
     letter-spacing: -1.5px;
@@ -448,7 +449,7 @@ h6 {
 }
 
 .hero-title span {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: linear-gradient(135deg, white, white);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -457,7 +458,7 @@ h6 {
 
 .hero-subtitle {
     font-size: 1.05rem;
-    color: var(--text-muted);
+    color: white;
     margin-bottom: 2rem;
     max-width: 580px;
     line-height: 1.75;
@@ -555,13 +556,13 @@ h6 {
 .stat-number {
     font-size: 1.9rem;
     font-weight: 800;
-    color: var(--secondary);
+    color: white;
     line-height: 1.05;
 }
 
 .stat-label {
     font-size: 0.78rem;
-    color: var(--text-muted);
+    color: white;
     font-weight: 500;
     line-height: 1.35;
     text-align: center;
