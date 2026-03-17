@@ -7,23 +7,282 @@
     <title>Skyline | Premier Overseas Manpower Agency Nepal</title>
     <meta name="description"
         content="Skyline connects highly skilled and dedicated Nepali workers with top employers in Qatar, Malaysia, UAE, and Saudi Arabia. Trusted overseas recruitment agency based in Kathmandu.">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Global Partners Section Styles -->
     <style>
+        /* =============================================
+           HERO SECTION — FULL BACKGROUND OVERRIDE
+           ============================================= */
+        .hero {
+            height: 100vh;
+            max-height: 100vh;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: url('news_bg_map.jpg') center / cover no-repeat;
+            box-sizing: border-box;
+        }
+
+        /* White gradient overlay */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.94) 0%,
+                    rgba(248, 250, 255, 0.88) 50%,
+                    rgba(238, 244, 255, 0.82) 100%);
+            z-index: 1;
+        }
+
+        /* Subtle decorative radial glow */
+        .hero-overlay::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .particles-container {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Single centered column layout */
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 4.5vw, 3.75rem);
+            margin-bottom: 1.1rem;
+            letter-spacing: -1.5px;
+            line-height: 1.12;
+            max-width: 820px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 580px;
+            line-height: 1.75;
+            text-align: center;
+        }
+
+        /* Search bar — card style */
+        .hero-search {
+            width: 100%;
+            max-width: 780px;
+            margin-bottom: 2.25rem;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 8px 8px 8px 8px;
+            border-radius: 18px;
+            box-shadow: 0 8px 40px rgba(67, 56, 202, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(67, 56, 202, 0.10);
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .search-input-group {
+            display: flex;
+            align-items: center;
+            padding: 10px 18px;
+            flex: 1;
+            min-width: 130px;
+        }
+
+        .search-input-group i {
+            color: var(--primary);
+            font-size: 14px;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .search-input-group input,
+        .search-input-group select {
+            border: none;
+            outline: none;
+            font-family: var(--font-main);
+            font-size: 0.88rem;
+            color: var(--secondary);
+            width: 100%;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .search-input-group input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-divider {
+            width: 1px;
+            height: 26px;
+            background-color: #e2e8f0;
+            flex-shrink: 0;
+        }
+
+        .search-btn {
+            padding: 13px 28px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Stats row */
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-number {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1.05;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.35;
+            text-align: center;
+            margin-top: 3px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 38px;
+            background-color: #e2e8f0;
+        }
+
+        /* Badge override for hero */
+        .hero-content .badge {
+            background: rgba(67, 56, 202, 0.08);
+            color: var(--primary);
+            border: 1px solid rgba(67, 56, 202, 0.15);
+            margin-bottom: 1.35rem;
+        }
+
+        /* Remove old hero grid / image styles that conflict */
+        .hero-image-wrapper,
+        .hero-image-bg,
+        .hero-image,
+        .floating-card,
+        .hero-shape-1,
+        .hero-shape-2,
+        .hero-shape-3,
+        .hero-shape-4 {
+            display: none !important;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 100svh;
+                padding: 6rem 0 3.5rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+                padding: 12px;
+                border-radius: 14px;
+                gap: 6px;
+            }
+
+            .search-input-group {
+                width: 100%;
+                background: #f8fafc;
+                border-radius: 8px;
+                padding: 10px 14px;
+                min-width: unset;
+            }
+
+            .search-divider {
+                display: none;
+            }
+
+            .search-btn {
+                width: 100%;
+                border-radius: 8px;
+                margin-top: 2px;
+            }
+
+            .stat-divider {
+                width: 36px;
+                height: 1px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                gap: 1rem;
+            }
+        }
+
+        /* =============================================
+           GLOBAL PARTNERS SECTION
+           ============================================= */
         .partners-section {
             padding: 100px 0;
             background: linear-gradient(180deg, #f8fafd 0%, #ffffff 100%);
         }
 
-        /* Category Tabs */
         .partners-tabs {
             display: flex;
             justify-content: center;
@@ -92,7 +351,6 @@
             transform: scale(1.1);
         }
 
-        /* Logos Grid Area */
         .partners-logo-area {
             margin-top: 48px;
             min-height: 280px;
@@ -113,6 +371,7 @@
                 opacity: 0;
                 transform: translateY(16px);
             }
+
             to {
                 opacity: 1;
                 transform: none;
@@ -177,21 +436,6 @@
             opacity: 1;
         }
 
-        .partner-logo-img {
-            width: 72px;
-            height: 72px;
-            border-radius: 14px;
-            object-fit: contain;
-            background: #f8fafd;
-            padding: 8px;
-            border: 1px solid #f0f3f9;
-            transition: transform 0.3s ease;
-        }
-
-        .partner-logo-card:hover .partner-logo-img {
-            transform: scale(1.08);
-        }
-
         .partner-logo-placeholder {
             width: 72px;
             height: 72px;
@@ -229,234 +473,38 @@
             margin: 0;
         }
 
-        /* Trust Badges */
-        .partners-trust-bar {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid #e8edf6;
-            flex-wrap: wrap;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        .trust-badge i {
-            font-size: 15px;
-            color: #3b82f6;
-        }
-
-        /* Responsive */
         @media (max-width: 640px) {
             .partners-tabs {
                 gap: 8px;
             }
+
             .partner-tab {
                 padding: 10px 18px;
                 font-size: 13px;
             }
+
             .partner-tab i {
                 font-size: 15px;
             }
+
             .partners-logos-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
+
             .partner-logo-card {
                 padding: 20px 12px 16px;
             }
-            .partner-logo-placeholder,
-            .partner-logo-img {
+
+            .partner-logo-placeholder {
                 width: 56px;
                 height: 56px;
             }
-            .partners-trust-bar {
-                gap: 16px;
-            }
         }
-    </style>
-</head>
 
-<body>
-
-    <!-- Navigation -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
-            </a>
-            <nav class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="services.html">Services</a>
-                <a href="about.html">About</a>
-                <a href="jobs.html">Jobs</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="nav-cta">
-                <a href="hire-talent.html" class="btn btn-primary">Request Manpower</a>
-                <button class="mobile-menu-btn" id="mobile-menu-btn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-content">
-            <button class="close-menu-btn" id="close-menu-btn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <nav class="mobile-nav-links">
-                <a href="index.html" class="mobile-link">Home</a>
-                <a href="services.html" class="mobile-link">Services</a>
-                <a href="about.html" class="mobile-link">About</a>
-                <a href="jobs.html" class="mobile-link">Jobs</a>
-                <a href="contact.html" class="mobile-link">Contact</a>
-                <a href="hire-talent.html" class="btn btn-primary mt-4">Request Manpower</a>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <!-- Particles Container -->
-        <div id="particles-js" class="particles-container"></div>
-        <!-- Decorative Shapes -->
-        <div class="hero-shape-1"></div>
-        <div class="hero-shape-2"></div>
-        <div class="hero-shape-3"></div>
-        <div class="hero-shape-4"></div>
-
-        <div class="container hero-container">
-            <div class="hero-content fade-in-up">
-                <!-- <div class="badge">Govt. Approved Agency</div> -->
-                <h1 class="hero-title">Connecting Nepal's Best with <span>Global Opportunities</span></h1>
-                <p class="hero-subtitle">Based in Kathmandu, we are a leading overseas manpower agency specializing in
-                    deploying dedicated Nepali professionals and workers to Qatar, Malaysia, UAE, and Saudi Arabia.</p>
-
-                <!-- Hero Search Bar -->
-                <div class="hero-search">
-                    <form action="jobs.html" method="GET" class="search-form" id="heroSearchForm">
-                        <div class="search-input-group">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" name="job_title" placeholder="Job Title" required>
-                        </div>
-                        <div class="search-divider"></div>
-                        <div class="search-input-group">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <select name="industry">
-                                <option value="">Any Industry</option>
-                                <option value="construction">Construction</option>
-                                <option value="hospitality">Hospitality</option>
-                                <option value="healthcare">Healthcare</option>
-                                <option value="oil_gas">Oil & Gas</option>
-                                <option value="security">Security</option>
-                            </select>
-                        </div>
-                        <div class="search-divider"></div>
-                        <div class="search-input-group">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <select name="country">
-                                <option value="">Any Country</option>
-                                <option value="qatar">Qatar</option>
-                                <option value="malaysia">Malaysia</option>
-                                <option value="uae">UAE</option>
-                                <option value="saudi">Saudi Arabia</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary search-btn">Search </button>
-                    </form>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">4+</span>
-                        <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number">10K+</span>
-                        <span class="stat-label">Deployments</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Ethical Hiring</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image-wrapper fade-in-up delay-200">
-                <div class="hero-image-bg"></div>
-                <img src="news_bg_map.jpg" alt="Diverse group of professional workers" class="hero-image" id="hero-img">
-                <div class="floating-card bottom-left">
-                    <div class="floating-card-icon"><i class="fa-solid fa-passport"></i></div>
-                    <div class="floating-card-text">
-                        <strong>Fast</strong><br>Visa Processing
-                    </div>
-                </div>
-                <div class="floating-card top-right">
-                    <div class="floating-card-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
-                    <div class="floating-card-text">
-                        <strong>Skill-Tested</strong><br>Candidates
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <!-- About Section -->
-    <section class="about section-padding" id="about">
-        <div class="container about-container">
-            <div class="about-image-wrapper fade-in-up">
-                <img src="workforce.jpg" alt="Skyline Recruitment Team" class="about-img" id="about-img">
-                <div class="about-experience">
-                    <span class="exp-number">10+</span>
-                    <span class="exp-text">Years in<br>Recruitment</span>
-                </div>
-            </div>
-            <div class="about-content fade-in-up delay-200">
-                <div class="badge">Why Choose Nepali Workers</div>
-                <h2 class="section-title">Dedicated Workforce for <span>Your Projects</span></h2>
-                <p class="about-text">At Skyline, based in the heart of Kathmandu, we are committed to bridging the gap
-                    between hardworking talent in Nepal and major employers in Qatar, Malaysia, UAE, and Saudi Arabia.
-                    We ensure ethical recruitment practices and unparalleled service quality.</p>
-                <!-- <p class="about-text">Nepali workers are globally recognized for their hard work, loyalty, and
-                    adaptability. Whether you need construction crews, hospitality staff, security personnel, or
-                    facility management teams, our rigorous vetting process guarantees you get the right personnel on
-                    time.</p> -->
-
-                <ul class="about-features">
-                    <li>
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>Government certified and ethically compliant agency</span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>Extensive database of medically fit, trade-tested workers</span>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>Fast-tracked mobilization and transparent processing</span>
-                    </li>
-                </ul>
-                <a href="contact.html" class="btn btn-primary mt-4">Partner With Us</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPANY STORY SECTION -->
-    <style>
+        /* =============================================
+           COMPANY STORY SECTION
+           ============================================= */
         .story-section {
             padding: 110px 0;
             background: #0d1b3e;
@@ -555,52 +603,6 @@
             font-weight: 600;
         }
 
-        .story-pull {
-            border-left: 3px solid #63b3ed;
-            padding: 14px 0 14px 22px;
-            margin: 32px 0;
-            font-size: 18px;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.6;
-        }
-
-        .story-milestones {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 36px;
-        }
-
-        .milestone-item {
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.04);
-            transition: background 0.2s, border-color 0.2s;
-        }
-
-        .milestone-item:hover {
-            background: rgba(99, 179, 237, 0.07);
-            border-color: rgba(99, 179, 237, 0.25);
-        }
-
-        .milestone-year {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #63b3ed;
-            margin: 0 0 6px;
-        }
-
-        .milestone-text {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.5;
-            margin: 0;
-        }
-
         .story-image-col {
             position: relative;
         }
@@ -667,12 +669,167 @@
             z-index: 0;
         }
     </style>
+</head>
 
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="hire-talent.html" class="btn btn-primary">Request Manpower</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="services.html" class="mobile-link">Services</a>
+                <a href="about.html" class="mobile-link">About</a>
+                <a href="jobs.html" class="mobile-link">Jobs</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="hire-talent.html" class="btn btn-primary mt-4">Request Manpower</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         HERO SECTION — Full Background Image with White Overlay
+         ============================================================ -->
+    <section class="hero" id="home">
+        <div id="particles-js" class="particles-container"></div>
+
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+
+                <!-- <div class="badge">
+                    <i class="fa-solid fa-circle-check" style="font-size:12px; margin-right:5px;"></i>
+                    Govt. Approved Agency &nbsp;·&nbsp; Kathmandu, Nepal
+                </div> -->
+
+                <h1 class="hero-title">
+                    Connecting Nepal's Best<br>with <span>Global Opportunities</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Based in Kathmandu, we are a leading overseas manpower agency specializing in
+                    deploying dedicated Nepali professionals and workers to Qatar, Malaysia, UAE, and Saudi Arabia.
+                </p>
+
+                <!-- Search Bar -->
+                <div class="hero-search">
+                    <form action="jobs.html" method="GET" class="search-form" id="heroSearchForm">
+                        <div class="search-input-group">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" name="job_title" placeholder="Job title or keyword" required>
+                        </div>
+                        <div class="search-divider"></div>
+                        <div class="search-input-group">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <select name="industry">
+                                <option value="">Any Industry</option>
+                                <option value="construction">Construction</option>
+                                <option value="hospitality">Hospitality</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="oil_gas">Oil & Gas</option>
+                                <option value="security">Security</option>
+                            </select>
+                        </div>
+                        <div class="search-divider"></div>
+                        <div class="search-input-group">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <select name="country">
+                                <option value="">Any Country</option>
+                                <option value="qatar">Qatar</option>
+                                <option value="malaysia">Malaysia</option>
+                                <option value="uae">UAE</option>
+                                <option value="saudi">Saudi Arabia</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary search-btn">Search Jobs</button>
+                    </form>
+                </div>
+
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Deployments</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Ethical Hiring</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container about-container">
+            <div class="about-image-wrapper fade-in-up">
+                <img src="workforce.jpg" alt="Skyline Recruitment Team" class="about-img" id="about-img">
+                <div class="about-experience">
+                    <span class="exp-number">10+</span>
+                    <span class="exp-text">Years in<br>Recruitment</span>
+                </div>
+            </div>
+            <div class="about-content fade-in-up delay-200">
+                <div class="badge">Why Choose Nepali Workers</div>
+                <h2 class="section-title">Dedicated Workforce for <span>Your Projects</span></h2>
+                <p class="about-text">At Skyline, based in the heart of Kathmandu, we are committed to bridging the gap
+                    between hardworking talent in Nepal and major employers in Qatar, Malaysia, UAE, and Saudi Arabia.
+                    We ensure ethical recruitment practices and unparalleled service quality.</p>
+                <ul class="about-features">
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Government certified and ethically compliant agency</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Extensive database of medically fit, trade-tested workers</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Fast-tracked mobilization and transparent processing</span>
+                    </li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary mt-4">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story Section -->
     <section class="story-section" id="our-story">
         <div class="container">
             <div class="story-layout">
-
-                <!-- LEFT: Text -->
                 <div class="story-text-col fade-in-up">
                     <span class="story-label">Our Story</span>
                     <h2 class="story-headline">
@@ -689,8 +846,6 @@
                         that mission with every deployment.
                     </p>
                 </div>
-
-                <!-- RIGHT: Image -->
                 <div class="story-image-col fade-in-up delay-200">
                     <div class="story-dots"></div>
                     <div class="story-img-frame">
@@ -703,13 +858,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    
-
+    <!-- Partners JS -->
     <script>
         var categoryData = {
             it: {
@@ -764,20 +917,16 @@
                     { initials: 'TG', name: 'Top Glove Corp.', type: 'Manufacturing', bg: '#fdf2f8', fg: '#db2777' },
                     { initials: 'WP', name: 'Westports Malaysia', type: 'Logistics', bg: '#fdf2f8', fg: '#db2777' },
                     { initials: 'EF', name: 'Emaar Facilities', type: 'Facility Mgmt.', bg: '#fdf2f8', fg: '#db2777' },
-                    { initials: 'TG', name: 'Transguard Group', type: 'Security', bg: '#fdf2f8', fg: '#db2777' }
+                    { initials: 'TG2', name: 'Transguard Group', type: 'Security', bg: '#fdf2f8', fg: '#db2777' }
                 ]
             }
         };
 
         function selectCategory(key) {
-            // Update active tab
             document.querySelectorAll('.partner-tab').forEach(function (el) {
                 el.classList.toggle('active', el.dataset.category === key);
             });
-
             var d = categoryData[key];
-
-            // Build cards
             var cards = d.partners.map(function (p) {
                 return '<div class="partner-logo-card" style="--card-accent:' + d.accent + '; --card-accent-end:' + d.accentEnd + '">' +
                     '<div class="partner-logo-placeholder" style="background:' + p.bg + ';color:' + p.fg + '">' + p.initials + '</div>' +
@@ -785,7 +934,6 @@
                     '<p class="partner-card-type">' + p.type + '</p>' +
                     '</div>';
             }).join('');
-
             document.getElementById('partnersLogoArea').innerHTML =
                 '<div class="partners-category-panel active">' +
                 '<div class="partners-category-header">' +
@@ -795,7 +943,6 @@
                 '</div>';
         }
 
-        // Default selection
         selectCategory('it');
     </script>
 
@@ -815,12 +962,10 @@
                         class="fa-solid fa-chevron-left"></i></button>
                 <div class="roles-carousel-wrapper">
                     <div class="roles-slider" id="rolesSlider">
-                        <!-- Role 1: Construction -->
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #3b82f6;">
                                 <div class="role-image-box">
-                                    <img src="construction.jpg" alt="Construction Jobs"
-                                        class="role-img">
+                                    <img src="construction.jpg" alt="Construction Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Construction</h3>
@@ -832,8 +977,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Role 2: Hospitality -->
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #f59e0b;">
                                 <div class="role-image-box">
@@ -849,8 +992,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Role 3: Security -->
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #ef4444;">
                                 <div class="role-image-box">
@@ -866,8 +1007,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Role 4: Logistics -->
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #10b981;">
                                 <div class="role-image-box">
@@ -883,8 +1022,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Role 5: Healthcare -->
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #8b5cf6;">
                                 <div class="role-image-box">
@@ -900,8 +1037,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Role 6: Maintenance -->
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #ec4899;">
                                 <div class="role-image-box">
@@ -917,8 +1052,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Role 7: Office -->
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #6366f1;">
                                 <div class="role-image-box">
@@ -982,18 +1115,16 @@
         </div>
     </section>
 
-    <!-- GLOBAL PARTNERS BY INDUSTRY -->
+    <!-- Global Partners by Industry -->
     <section class="partners-section bg-light section-padding" id="partners">
         <div class="container">
-
             <div class="section-header text-center fade-in-up">
                 <div class="badge">Our Network</div>
                 <h2 class="section-title">Global Partners <span>by Industry</span></h2>
-                <p class="section-subtitle">We work with leading companies across multiple industries — delivering skilled,
+                <p class="section-subtitle">We work with leading companies across multiple industries — delivering
+                    skilled,
                     pre-vetted talent for every sector.</p>
             </div>
-
-            <!-- Category Tabs -->
             <div class="partners-tabs fade-in-up delay-100">
                 <button class="partner-tab active" data-category="it"
                     style="--tab-color:#6366f1; --tab-color-end:#818cf8;" onclick="selectCategory('it')">
@@ -1005,27 +1136,21 @@
                     <i class="fa-solid fa-helmet-safety"></i>
                     <span>Construction</span>
                 </button>
-                <button class="partner-tab" data-category="health"
-                    style="--tab-color:#10b981; --tab-color-end:#34d399;" onclick="selectCategory('health')">
+                <button class="partner-tab" data-category="health" style="--tab-color:#10b981; --tab-color-end:#34d399;"
+                    onclick="selectCategory('health')">
                     <i class="fa-solid fa-heart-pulse"></i>
                     <span>Health</span>
                 </button>
-                <button class="partner-tab" data-category="others"
-                    style="--tab-color:#ec4899; --tab-color-end:#f472b6;" onclick="selectCategory('others')">
+                <button class="partner-tab" data-category="others" style="--tab-color:#ec4899; --tab-color-end:#f472b6;"
+                    onclick="selectCategory('others')">
                     <i class="fa-solid fa-briefcase"></i>
                     <span>Others</span>
                 </button>
             </div>
-
-            <!-- Logo Panels -->
-            <div class="partners-logo-area fade-in-up delay-200" id="partnersLogoArea">
-                <!-- Dynamically injected by JS -->
-            </div>
-
+            <div class="partners-logo-area fade-in-up delay-200" id="partnersLogoArea"></div>
             <div style="margin-top:32px;text-align:center;" class="fade-in-up delay-200">
                 <a href="contact.html" class="btn btn-primary">Become a Partner Employer</a>
             </div>
-
         </div>
     </section>
 
@@ -1036,9 +1161,7 @@
                 <h2 class="section-title">Latest <span>Updates</span></h2>
                 <p class="section-subtitle">Stay informed with our recent announcements and company news.</p>
             </div>
-
             <div class="news-container fade-in-up delay-100">
-                <!-- News 1 -->
                 <div class="news-card">
                     <div class="news-image-wrapper">
                         <img src="about_office_team.webp" alt="Dubai Office Opening" class="news-img">
@@ -1054,8 +1177,6 @@
                         <a href="#" class="news-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- News 2 -->
                 <div class="news-card">
                     <div class="news-image-wrapper">
                         <img src="hero_business_professionals.webp" alt="Recruitment Award" class="news-img">
@@ -1071,8 +1192,6 @@
                         <a href="#" class="news-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- News 3 -->
                 <div class="news-card">
                     <div class="news-image-wrapper">
                         <img src="about_office_team.webp" alt="Malaysia Resumes Intake" class="news-img">
@@ -1089,7 +1208,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="text-center mt-12 fade-in-up delay-200">
                 <a href="#" class="btn btn-secondary">View All News</a>
             </div>
@@ -1103,11 +1221,8 @@
                 <h2 class="section-title">Client <span>Testimonials</span></h2>
                 <p class="section-subtitle">Hear what our global partners have to say about our manpower solutions.</p>
             </div>
-
             <div class="testimonial-carousel-container fade-in-up delay-100">
                 <div class="testimonial-carousel" id="testimonialCarousel">
-
-                    <!-- Testimonial 1 -->
                     <div class="testimonial-slide active">
                         <div class="testimonial-card">
                             <i class="fa-solid fa-quote-left quote-icon"></i>
@@ -1122,8 +1237,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Testimonial 2 -->
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <i class="fa-solid fa-quote-left quote-icon"></i>
@@ -1138,8 +1251,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Testimonial 3 -->
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <i class="fa-solid fa-quote-left quote-icon"></i>
@@ -1154,10 +1265,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <!-- Carousel Controls -->
                 <div class="carousel-controls">
                     <button class="carousel-btn prev-btn" id="prevTestimonial"><i
                             class="fa-solid fa-arrow-left"></i></button>
@@ -1196,7 +1304,7 @@
             <div class="footer-grid">
                 <div class="footer-col brand-col">
                     <a href="index.html" class="logo footer-logo">
-                        <i class="fa-solid fa-users-gear"></i> Nex<span>Talent</span>
+                        <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
                     </a>
                     <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to
                         Qatar, Malaysia, UAE, and Saudi Arabia.</p>
@@ -1252,15 +1360,10 @@
         </div>
     </footer>
 
-    <!-- GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- Particles.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 
 </html>
-
-
-<!-- countries: romania, cyprus, bosnia,  -->
