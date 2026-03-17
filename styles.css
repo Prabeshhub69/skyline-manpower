@@ -394,8 +394,7 @@ h6 {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    /* Set your actual hero image here */
-    background: url('worker2.jpg') center / cover no-repeat;
+    /* Background image is controlled by the JS slideshow in index.html */
     box-sizing: border-box;
 }
 

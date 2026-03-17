@@ -13,193 +13,15 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Override hero background — controlled by JS slideshow */
+        .hero {
+            background-image: none !important;
+            transition: background-image 0.8s ease-in-out;
+        }
+    </style>
 
     <style>
-        /* =============================================
-           HERO SECTION — FULL BACKGROUND OVERRIDE
-           ============================================= */
-        .hero {
-            height: 100vh;
-            max-height: 100vh;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-
-        /* White gradient overlay */
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            /* background: linear-gradient(135deg,
-                    rgba(141, 141, 141, 0.94) 0%,
-                    rgba(248, 250, 255, 0.88) 0%,
-                    rgba(56, 56, 56, 0.82) 0%); */
-            z-index: 1;
-        }
-
-        /* Subtle decorative radial glow */
-        .hero-overlay::after {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, transparent 65%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .particles-container {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        /* Single centered column layout */
-        .hero-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-
-        .search-input-group i {
-            color: var(--primary);
-            font-size: 14px;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
-
-        .search-input-group input,
-        .search-input-group select {
-            border: none;
-            outline: none;
-            font-family: var(--font-main);
-            font-size: 0.88rem;
-            color: var(--secondary);
-            width: 100%;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .search-input-group input::placeholder {
-            color: #94a3b8;
-        }
-
-        .search-divider {
-            width: 1px;
-            height: 26px;
-            background-color: #e2e8f0;
-            flex-shrink: 0;
-        }
-
-        .search-btn {
-            padding: 13px 28px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        /* Stats row */
-        .hero-stats {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.75rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Badge override for hero */
-        .hero-content .badge {
-            background: rgba(67, 56, 202, 0.08);
-            color: var(--primary);
-            border: 1px solid rgba(67, 56, 202, 0.15);
-            margin-bottom: 1.35rem;
-        }
-
-        /* Remove old hero grid / image styles that conflict */
-        .hero-image-wrapper,
-        .hero-image-bg,
-        .hero-image,
-        .floating-card,
-        .hero-shape-1,
-        .hero-shape-2,
-        .hero-shape-3,
-        .hero-shape-4 {
-            display: none !important;
-        }
-
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            .hero {
-                height: auto;
-                min-height: 100svh;
-                padding: 6rem 0 3.5rem;
-            }
-
-            .search-form {
-                flex-direction: column;
-                padding: 12px;
-                border-radius: 14px;
-                gap: 6px;
-            }
-
-            .search-input-group {
-                width: 100%;
-                background: #f8fafc;
-                border-radius: 8px;
-                padding: 10px 14px;
-                min-width: unset;
-            }
-
-            .search-divider {
-                display: none;
-            }
-
-            .search-btn {
-                width: 100%;
-                border-radius: 8px;
-                margin-top: 2px;
-            }
-
-            .stat-divider {
-                width: 36px;
-                height: 1px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-stats {
-                gap: 1rem;
-            }
-        }
-
         /* =============================================
            GLOBAL PARTNERS SECTION
            ============================================= */
@@ -641,16 +463,11 @@
          HERO SECTION — Full Background Image with White Overlay
          ============================================================ -->
     <section class="hero" id="home">
-        <div class="hero-overlay"></div>
+        <div class="hero-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;"></div>
         <div id="particles-js" class="particles-container"></div>
 
         <div class="container hero-container">
             <div class="hero-content fade-in-up">
-
-                <!-- <div class="badge">
-                    <i class="fa-solid fa-circle-check" style="font-size:12px; margin-right:5px;"></i>
-                    Govt. Approved Agency &nbsp;·&nbsp; Kathmandu, Nepal
-                </div> -->
 
                 <h1 class="hero-title">
                     Connecting Nepal's Best<br>with <span>Global Opportunities</span>
@@ -1271,7 +1088,8 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-envelope"></i>
-                            <span>info@skylinemanpower.com.np</span>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="355c5b535a75465e4c595c5b5058545b455a4250471b565a581b5b45">[email&#160;protected]</a></span>
                         </li>
                     </ul>
                 </div>
@@ -1285,6 +1103,61 @@
             </div>
         </div>
     </footer>
+
+    <!-- Hero Background Slideshow -->
+    <script>
+        (function () {
+            var images = [
+                'herosection3.jpg',
+                'herosection2.jpg',
+                'herosection1.jpg',
+                'airport.jpg'
+            ];
+
+            var current = 0;
+            var hero = document.getElementById('home');
+
+            // Create two layers for smooth crossfade
+            var layerA = document.createElement('div');
+            var layerB = document.createElement('div');
+
+            var baseStyle = [
+                'position:absolute', 'inset:0', 'background-size:cover',
+                'background-position:center', 'background-repeat:no-repeat',
+                'transition:opacity 1s ease-in-out', 'z-index:0'
+            ].join(';');
+
+            layerA.setAttribute('style', baseStyle + ';opacity:1');
+            layerB.setAttribute('style', baseStyle + ';opacity:0');
+
+            layerA.style.backgroundImage = 'url("' + images[0] + '")';
+            layerB.style.backgroundImage = 'url("' + images[1] + '")';
+
+            hero.insertBefore(layerB, hero.firstChild);
+            hero.insertBefore(layerA, hero.firstChild);
+
+            var activeLayer = layerA;
+            var inactiveLayer = layerB;
+
+            setInterval(function () {
+                current = (current + 1) % images.length;
+                var next = (current + 1) % images.length;
+
+                inactiveLayer.style.backgroundImage = 'url("' + images[current] + '")';
+
+                activeLayer.style.opacity = '0';
+                inactiveLayer.style.opacity = '1';
+
+                setTimeout(function () {
+                    activeLayer.style.backgroundImage = 'url("' + images[next] + '")';
+                    var tmp = activeLayer;
+                    activeLayer = inactiveLayer;
+                    inactiveLayer = tmp;
+                }, 1100);
+
+            }, 10000);
+        })();
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
