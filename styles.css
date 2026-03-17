@@ -299,6 +299,8 @@ h6 {
 .nav-links a {
     font-weight: 500;
     position: relative;
+    color: var(--secondary);
+    transition: var(--transition);
 }
 
 .nav-links a::after {
@@ -322,6 +324,20 @@ h6 {
     color: var(--primary);
 }
 
+/* --- HOME PAGE SPECIFIC STYLES (Transparent Navbar) --- */
+.home-page .navbar:not(.scrolled) .nav-links a {
+    color: var(--white);
+}
+
+.home-page .navbar:not(.scrolled) .nav-links a::after {
+    background-color: var(--white);
+}
+
+.home-page .navbar:not(.scrolled) .nav-links a:hover,
+.home-page .navbar:not(.scrolled) .nav-links a.active {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .nav-cta {
     display: flex;
     align-items: center;
@@ -335,6 +351,11 @@ h6 {
     font-size: 1.5rem;
     color: var(--secondary);
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.home-page .navbar:not(.scrolled) .mobile-menu-btn {
+    color: var(--white);
 }
 
 /* Mobile Menu */

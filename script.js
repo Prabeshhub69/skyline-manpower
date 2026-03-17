@@ -29,28 +29,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Active Link Highlighting
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current) && current !== '') {
-            link.classList.add('active');
-        }
-    });
-});
+// Active Link Highlighting has been removed for multi-page layout
 
 // Scroll Animation Observer (Fade In Up)
 const observerOptions = {
