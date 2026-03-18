@@ -187,7 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize GSAP Stats Counter
     initStatsCounter();
 
-
+    // Initialize Hero Scroll Animation
+    initHeroScrollAnimation();
 
 
     function initRolesCarousel() {
@@ -313,5 +314,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    }
+
+    function initHeroScrollAnimation() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+        
+        const heroWrapper = document.getElementById('hero-wrapper');
+        const hero = document.getElementById('home');
+        const heroContent = document.querySelector('.hero-content'); // Title & Search
+        const statsLeft = document.querySelector('.stats-left');
+        const statsRight = document.querySelector('.stats-right');
+        
+        if (!heroWrapper || !hero) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: heroWrapper,
+                start: "top top",
+                end: "+=150%", // Pins for 1.5x screen height to allow scrolling time
+                pin: true,
+                scrub: 1, // Smooth scrubbing
+            }
+        });
+
+        // 1. Fade out title and search synchronously with shrink
+        tl.to(heroContent, { opacity: 0, y: -50, duration: 2 })
+        
+        // 2. Shrink the hero image
+        .to(hero, {
+            width: "50vw", // Or some percentage like 50%
+            height: "65vh",
+            borderRadius: "30px", // Give it nice rounded corners to look intentional
+            duration: 2,
+            ease: "power2.inOut"
+        }, "<") // Start shrinking at the same time as fade out
+        
+        // 3. Fade in stats on the left and right securely avoiding overlap with the centered image
+        .fromTo(statsLeft, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1 }, "-=1")
+        .fromTo(statsRight, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 1 }, "<");
     }
 });

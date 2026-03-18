@@ -462,12 +462,13 @@
     <!-- ============================================================
          HERO SECTION — Full Background Image with White Overlay
          ============================================================ -->
-    <section class="hero" id="home">
-        <div class="hero-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;"></div>
+    <section class="hero-wrapper" id="hero-wrapper">
+        <div class="hero" id="home">
+            <div class="hero-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;"></div>
         <div id="particles-js" class="particles-container"></div>
 
         <div class="container hero-container">
-            <div class="hero-content fade-in-up">
+            <div class="hero-content">
 
                 <h1 class="hero-title">
                     Connecting Nepal's Best<br>with <span>Global Opportunities</span>
@@ -512,26 +513,29 @@
                     </form>
                 </div>
 
-                <!-- Stats -->
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">4+</span>
-                        <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number">10K+</span>
-                        <span class="stat-label">Deployments</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Ethical Hiring</span>
-                    </div>
-                </div>
-
             </div>
         </div>
+    </div>
+
+    <!-- Stats for Scroll Animation -->
+    <div class="hero-scrolled-stats">
+        <div class="stats-left">
+            <div class="stat-scrolled">
+                <span class="stat-number">4+</span>
+                <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
+            </div>
+            <div class="stat-scrolled">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Ethical Hiring</span>
+            </div>
+        </div>
+        <div class="stats-right">
+            <div class="stat-scrolled">
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Deployments</span>
+            </div>
+        </div>
+    </div>
     </section>
 
     <!-- About Section -->
