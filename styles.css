@@ -426,7 +426,7 @@ h6 {
     position: relative;
     overflow: hidden;
     z-index: 10;
-    will-change: transform, width, height, border-radius;
+    will-change: transform, clip-path;
 }
 
 .hero-overlay::after {
@@ -837,7 +837,7 @@ h6 {
 .company-stats {
     position: relative;
     padding: 6rem 0;
-    background: url('news_bg_map.jpg') center/cover no-repeat fixed;
+    background: url('news_bg_map.jpg') center/cover no-repeat;
     overflow: hidden;
 }
 
@@ -1114,7 +1114,6 @@ h6 {
     background-image: url('news_bg_map.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     background-color: var(--white);
     padding: 5rem 0;
 }

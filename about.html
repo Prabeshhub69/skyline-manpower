@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Skyline</title>
-    <meta name="description" content="Learn more about Skyline, a top-ranked overseas recruitment agency serving the Middle East and Malaysia from Kathmandu, Nepal.">
+    <meta name="description"
+        content="Learn more about Skyline, a top-ranked overseas recruitment agency serving the Middle East and Malaysia from Kathmandu, Nepal.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -18,46 +21,55 @@
             background: linear-gradient(135deg, var(--bg-light), var(--bg-main));
             text-align: center;
         }
+
         .page-title {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: var(--secondary);
         }
+
         .page-subtitle {
             font-size: 1.125rem;
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
         }
-        
-        .mission-section { padding: var(--section-pad) 0; }
+
+        .mission-section {
+            padding: var(--section-pad) 0;
+        }
+
         .mission-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
+
         .mission-content h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             color: var(--secondary);
         }
+
         .mission-content p {
             font-size: 1.125rem;
             color: var(--text-muted);
             margin-bottom: 1.5rem;
         }
-        
+
         .values-section {
             padding: var(--section-pad) 0;
             background: var(--bg-light);
         }
+
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
+
         .value-card {
             background: var(--white);
             padding: 2.5rem;
@@ -66,33 +78,42 @@
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
         }
+
         .value-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
         }
+
         .value-icon {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
         }
+
         .value-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
+
         .value-card p {
             color: var(--text-muted);
         }
 
-        .team-section { padding: var(--section-pad) 0; }
+        .team-section {
+            padding: var(--section-pad) 0;
+        }
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
         }
+
         .team-member {
             text-align: center;
         }
+
         .team-img {
             width: 200px;
             height: 200px;
@@ -102,11 +123,13 @@
             border: 4px solid var(--white);
             box-shadow: var(--shadow-md);
         }
+
         .team-name {
             font-size: 1.5rem;
             color: var(--secondary);
             margin-bottom: 0.25rem;
         }
+
         .team-role {
             color: var(--primary);
             font-weight: 500;
@@ -114,10 +137,14 @@
         }
 
         @media (max-width: 900px) {
-            .mission-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation -->
@@ -172,13 +199,20 @@
         <div class="container">
             <div class="mission-grid">
                 <div class="mission-image fade-in-up">
-                    <img src="visa.jpg" alt="Skyline Team in Nepal" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); width: 100%;">
+                    <img src="visa.jpg" alt="Skyline Team in Nepal"
+                        style="border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); width: 100%;">
                 </div>
                 <div class="mission-content fade-in-up delay-100">
                     <div class="badge">Government Approved</div>
                     <h2>Uplifting Lives by Connecting Nepali Talent Globally</h2>
-                    <p>Skyline is a fully licensed and registered overseas manpower agency headquartered in Kathmandu, Nepal. Our mission is to provide life-changing international career opportunities to Nepali citizens while fulfilling the massive labor demands of rapidly growing economies in the Middle East and Southeast Asia.</p>
-                    <p>We pride ourselves on our ethical recruitment practices, zero-tolerance policy against worker exploitation, and strict adherence to the labor laws of both Nepal and the host countries. When you partner with us, you are guaranteed a fully compliant, medically fit, and highly motivated workforce.</p>
+                    <p>Skyline is a fully licensed and registered overseas manpower agency headquartered in Kathmandu,
+                        Nepal. Our mission is to provide life-changing international career opportunities to Nepali
+                        citizens while fulfilling the massive labor demands of rapidly growing economies in the Middle
+                        East and Southeast Asia.</p>
+                    <p>We pride ourselves on our ethical recruitment practices, zero-tolerance policy against worker
+                        exploitation, and strict adherence to the labor laws of both Nepal and the host countries. When
+                        you partner with us, you are guaranteed a fully compliant, medically fit, and highly motivated
+                        workforce.</p>
                 </div>
             </div>
         </div>
@@ -200,7 +234,8 @@
                 <div class="value-card fade-in-up delay-100">
                     <i class="fa-solid fa-user-shield value-icon"></i>
                     <h3>Protection</h3>
-                    <p>We ensure that all candidates receive fair contracts, insurance, and safe living conditions abroad.</p>
+                    <p>We ensure that all candidates receive fair contracts, insurance, and safe living conditions
+                        abroad.</p>
                 </div>
                 <div class="value-card fade-in-up delay-200">
                     <i class="fa-solid fa-bolt value-icon"></i>
@@ -210,82 +245,9 @@
                 <div class="value-card fade-in-up delay-300">
                     <i class="fa-solid fa-medal value-icon"></i>
                     <h3>Quality</h3>
-                    <p>Partnering with certified technical institutes to ensure candidates pass rigorous trade tests.</p>
+                    <p>Partnering with certified technical institutes to ensure candidates pass rigorous trade tests.
+                    </p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" style="padding: var(--section-pad) 0;">
-        <div class="container">
-            <div class="text-center fade-in-up">
-                <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
-                <p class="section-subtitle">Common queries about our recruitment process and agency policies.</p>
-            </div>
-            
-            <div class="faq-container fade-in-up delay-100">
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What industries do you recruit for?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p>We supply skilled, semi-skilled, and unskilled manpower across various sectors including Construction, Hospitality, Oil & Gas, Security, Healthcare, Manufacturing, and Facilities Management.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How long does the deployment process take?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p>Typically, the entire deployment process from final selection to departure takes between 3 to 6 weeks, depending on the host country's visa processing times and local compliance requirements.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Do candidates undergo medical and trade testing?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p>Yes, absolutely. All shortlisted candidates must pass a rigorous medical examination at a GAMCA or government-approved center. Technical candidates undergo practical trade tests at certified institutes before final selection.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What guarantees do you offer for recruited personnel?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p>We provide a standard 90-day probationary guarantee. If a deployed worker is found medically unfit or professionally incompetent during this period, we will provide a replacement at our own sourcing cost.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Are you registered with the Nepal Government?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p>Yes, Skyline is a fully licensed overseas employment agency authorized by the Department of Foreign Employment (DoFE), Government of Nepal. We adhere to all legitimate and ethical recruitment protocols.</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -299,23 +261,113 @@
             </div>
             <div class="team-grid">
                 <div class="team-member fade-in-up">
-                    <div style="width: 200px; height: 200px; border-radius: 50%; background: var(--secondary-light); margin: 0 auto 1.5rem;"></div>
+                    <div
+                        style="width: 200px; height: 200px; border-radius: 50%; background: var(--secondary-light); margin: 0 auto 1.5rem;">
+                    </div>
                     <h3 class="team-name">Ramesh Shrestha</h3>
                     <div class="team-role">Managing Director</div>
                     <p class="text-muted">15+ years experience coordinating with MENA clients.</p>
                 </div>
                 <div class="team-member fade-in-up delay-100">
-                    <div style="width: 200px; height: 200px; border-radius: 50%; background: var(--secondary-light); margin: 0 auto 1.5rem;"></div>
+                    <div
+                        style="width: 200px; height: 200px; border-radius: 50%; background: var(--secondary-light); margin: 0 auto 1.5rem;">
+                    </div>
                     <h3 class="team-name">Bina Thapa</h3>
                     <div class="team-role">Operations Head</div>
                     <p class="text-muted">Expert in DOFE regulations and embassy procedures.</p>
                 </div>
                 <div class="team-member fade-in-up delay-200">
-                    <div style="width: 200px; height: 200px; border-radius: 50%; background: var(--secondary-light); margin: 0 auto 1.5rem;"></div>
+                    <div
+                        style="width: 200px; height: 200px; border-radius: 50%; background: var(--secondary-light); margin: 0 auto 1.5rem;">
+                    </div>
                     <h3 class="team-name">Prakash Gurung</h3>
                     <div class="team-role">Public Relations (Gulf)</div>
                     <p class="text-muted">Overseas representative acting as liaison in Qatar and UAE.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: var(--section-pad) 0;">
+        <div class="container">
+            <div class="text-center fade-in-up">
+                <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+                <p class="section-subtitle">Common queries about our recruitment process and agency policies.</p>
+            </div>
+
+            <div class="faq-container fade-in-up delay-100">
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What industries do you recruit for?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>We supply skilled, semi-skilled, and unskilled manpower across various sectors including
+                                Construction, Hospitality, Oil & Gas, Security, Healthcare, Manufacturing, and
+                                Facilities Management.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How long does the deployment process take?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Typically, the entire deployment process from final selection to departure takes between
+                                3 to 6 weeks, depending on the host country's visa processing times and local compliance
+                                requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do candidates undergo medical and trade testing?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes, absolutely. All shortlisted candidates must pass a rigorous medical examination at a
+                                GAMCA or government-approved center. Technical candidates undergo practical trade tests
+                                at certified institutes before final selection.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What guarantees do you offer for recruited personnel?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>We provide a standard 90-day probationary guarantee. If a deployed worker is found
+                                medically unfit or professionally incompetent during this period, we will provide a
+                                replacement at our own sourcing cost.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Are you registered with the Nepal Government?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes, Skyline is a fully licensed overseas employment agency authorized by the Department
+                                of Foreign Employment (DoFE), Government of Nepal. We adhere to all legitimate and
+                                ethical recruitment protocols.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -329,7 +381,8 @@
                     <a href="index.html" class="logo footer-logo">
                         <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
                     </a>
-                    <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to Qatar, Malaysia, UAE, and Saudi Arabia.</p>
+                    <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to
+                        Qatar, Malaysia, UAE, and Saudi Arabia.</p>
                 </div>
                 <!-- ... Footer Links Rest same ... -->
                 <div class="footer-col">
@@ -377,7 +430,7 @@
                 const elements = document.querySelectorAll('.fade-in-up');
                 elements.forEach(el => {
                     const rect = el.getBoundingClientRect();
-                    if(rect.top < window.innerHeight) {
+                    if (rect.top < window.innerHeight) {
                         el.classList.add('visible');
                     }
                 });
@@ -385,4 +438,5 @@
         });
     </script>
 </body>
+
 </html>

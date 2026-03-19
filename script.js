@@ -329,6 +329,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         gsap.registerPlugin(ScrollTrigger);
 
+        // Ensure starting state for smooth clip-path interpolation
+        gsap.set(hero, { clipPath: "inset(0vh 0vw round 0px)" });
+
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: heroWrapper,
@@ -342,11 +345,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Fade out title and search synchronously with shrink
         tl.to(heroContent, { opacity: 0, y: -50, duration: 2 })
         
-        // 2. Shrink the hero image
+        // 2. Shrink the hero image securely without layout thrashing
         .to(hero, {
-            width: "50vw", // Or some percentage like 50%
-            height: "65vh",
-            borderRadius: "30px", // Give it nice rounded corners to look intentional
+            clipPath: "inset(17.5vh 25vw round 30px)",
             duration: 2,
             ease: "power2.inOut"
         }, "<") // Start shrinking at the same time as fade out
