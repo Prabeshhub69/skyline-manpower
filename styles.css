@@ -586,26 +586,79 @@ h6 {
     gap: 2.5rem;
 }
 
-.stat-scrolled {
+/* Glassmorphic Slanted Stat Cards */
+.stat-glass-card {
+    position: relative;
+    width: 260px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    will-change: transform, opacity;
+}
+
+.stat-card-large {
+    width: 300px;
+    padding: 1rem 0;
+}
+
+.sgc-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+
+.sgc-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.stat-scrolled .stat-number {
-    font-size: 3rem;
-    font-weight: 800;
+.sgc-icon {
+    font-size: 2rem;
     color: var(--accent);
-    line-height: 1.1;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.5));
 }
 
-.stat-scrolled .stat-label {
+.stat-glass-card .stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+.stat-glass-card .stat-label {
     font-size: 1rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
-    margin-top: 0.5rem;
-    line-height: 1.35;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Initial GSAP states handled in JS, but we can set default tilts */
+.stat-left-tilt {
+    transform: rotate(-6deg);
+}
+
+.stat-right-tilt {
+    transform: rotate(6deg);
 }
 
 /* Suppress old hero elements */
@@ -945,12 +998,12 @@ h6 {
 .cta-box::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 0;
-    width: 50%;
+    width: 60%;
     height: 100%;
     background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></svg>') repeat;
-    background-size: 100px 100px;
+    background-size: 1000px 1000px;
     opacity: 0.5;
     z-index: 1;
 }
@@ -1011,6 +1064,7 @@ h6 {
 .testimonial-card {
     background: var(--white);
     padding: 3rem;
+    margin-bottom: 10px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     text-align: center;
@@ -1529,7 +1583,7 @@ h6 {
 
 /* ===== SECTION HEADER ===== */
 .section-header {
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
 }
 
 /* ===== MEDIA QUERIES ===== */

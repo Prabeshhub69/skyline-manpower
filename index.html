@@ -73,10 +73,11 @@
         }
 
         .partner-tab.active {
+            background: linear-gradient(135deg, var(--tab-color, #3b82f6), var(--tab-color-end, #60a5fa)) !important;
             border-color: transparent;
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px color-mix(in srgb, var(--tab-color, #3b82f6) 35%, transparent);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35); /* Fallback for color-mix if needed */
         }
 
         .partner-tab.active::before {
@@ -424,7 +425,7 @@
     <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+                <i class="fa-solid fa-users-gear"></i> Skyline
             </a>
             <nav class="nav-links">
                 <a href="index.html" class="active">Home</a>
@@ -520,19 +521,31 @@
     <!-- Stats for Scroll Animation -->
     <div class="hero-scrolled-stats">
         <div class="stats-left">
-            <div class="stat-scrolled">
-                <span class="stat-number">4+</span>
-                <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
+            <div class="stat-glass-card stat-left-tilt">
+                <div class="sgc-bg" style="background-image: url('airport.jpg');"></div>
+                <div class="sgc-content">
+                    <i class="fa-solid fa-earth-americas sgc-icon"></i>
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
+                </div>
             </div>
-            <div class="stat-scrolled">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Ethical Hiring</span>
+            <div class="stat-glass-card stat-left-tilt delay-card">
+                <div class="sgc-bg" style="background-image: url('workforce.jpg');"></div>
+                <div class="sgc-content">
+                    <i class="fa-solid fa-shield-halved sgc-icon"></i>
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Ethical Hiring</span>
+                </div>
             </div>
         </div>
         <div class="stats-right">
-            <div class="stat-scrolled">
-                <span class="stat-number">10K+</span>
-                <span class="stat-label">Deployments</span>
+            <div class="stat-glass-card stat-right-tilt stat-card-large">
+                <div class="sgc-bg" style="background-image: url('workforce.jpg');"></div>
+                <div class="sgc-content">
+                    <i class="fa-solid fa-users sgc-icon"></i>
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Deployments</span>
+                </div>
             </div>
         </div>
     </div>
@@ -568,7 +581,7 @@
                         <span>Fast-tracked mobilization and transparent processing</span>
                     </li>
                 </ul>
-                <a href="contact.html" class="btn btn-primary mt-4">Partner With Us</a>
+                <a href="contact.html" class="btn btn-primary mt-4">About Us</a>
             </div>
         </div>
     </section>
@@ -690,7 +703,7 @@
                 '</div>';
         }
 
-        selectCategory('it');
+        selectCategory('construction');
     </script>
 
     <!-- Job Roles Section -->
@@ -873,15 +886,15 @@
                     pre-vetted talent for every sector.</p>
             </div>
             <div class="partners-tabs fade-in-up delay-100">
-                <button class="partner-tab active" data-category="it"
-                    style="--tab-color:#6366f1; --tab-color-end:#818cf8;" onclick="selectCategory('it')">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <span>IT</span>
-                </button>
-                <button class="partner-tab" data-category="construction"
+                <button class="partner-tab active" data-category="construction"
                     style="--tab-color:#f59e0b; --tab-color-end:#fbbf24;" onclick="selectCategory('construction')">
                     <i class="fa-solid fa-helmet-safety"></i>
                     <span>Construction</span>
+                </button>
+                <button class="partner-tab" data-category="it"
+                    style="--tab-color:#6366f1; --tab-color-end:#818cf8;" onclick="selectCategory('it')">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>IT</span>
                 </button>
                 <button class="partner-tab" data-category="health" style="--tab-color:#10b981; --tab-color-end:#34d399;"
                     onclick="selectCategory('health')">
@@ -911,7 +924,7 @@
             <div class="news-container fade-in-up delay-100">
                 <div class="news-card">
                     <div class="news-image-wrapper">
-                        <img src="about_office_team.webp" alt="Dubai Office Opening" class="news-img">
+                        <img src="workers.jpg" alt="Dubai Office Opening" class="news-img">
                         <div class="news-date">
                             <span class="day">15</span>
                             <span class="month">Mar</span>
@@ -926,7 +939,7 @@
                 </div>
                 <div class="news-card">
                     <div class="news-image-wrapper">
-                        <img src="hero_business_professionals.webp" alt="Recruitment Award" class="news-img">
+                        <img src="news_bg_map.jpg" alt="Recruitment Award" class="news-img">
                         <div class="news-date">
                             <span class="day">02</span>
                             <span class="month">Feb</span>
@@ -941,7 +954,7 @@
                 </div>
                 <div class="news-card">
                     <div class="news-image-wrapper">
-                        <img src="about_office_team.webp" alt="Malaysia Resumes Intake" class="news-img">
+                        <img src="construction.jpg" alt="Malaysia Resumes Intake" class="news-img">
                         <div class="news-date">
                             <span class="day">18</span>
                             <span class="month">Jan</span>

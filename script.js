@@ -352,8 +352,16 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "power2.inOut"
         }, "<") // Start shrinking at the same time as fade out
         
-        // 3. Fade in stats on the left and right securely avoiding overlap with the centered image
-        .fromTo(statsLeft, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1 }, "-=1")
-        .fromTo(statsRight, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 1 }, "<");
+        // 3. Fade in and slightly rotate the slanted glass stat cards
+        .fromTo(statsLeft.children, 
+            { opacity: 0, x: -60, y: 30, rotation: -15 }, 
+            { opacity: 1, x: 0, y: 0, rotation: -6, duration: 1.2, stagger: 0.2, ease: "back.out(1.2)" }, 
+            "-=1"
+        )
+        .fromTo(statsRight.children, 
+            { opacity: 0, x: 60, y: 30, rotation: 15 }, 
+            { opacity: 1, x: 0, y: 0, rotation: 6, duration: 1.2, ease: "back.out(1.2)" }, 
+            "<"
+        );
     }
 });
