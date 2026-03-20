@@ -430,7 +430,13 @@
             <nav class="nav-links">
                 <a href="index.html" class="active">Home</a>
                 <a href="services.html">Services</a>
-                <a href="about.html">About</a>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-toggle">About <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html">About SkyLine</a>
+                        <a href="industries.html">Industries</a>
+                    </div>
+                </div>
                 <a href="jobs.html">Jobs</a>
                 <a href="contact.html">Contact</a>
             </nav>
@@ -452,7 +458,13 @@
             <nav class="mobile-nav-links">
                 <a href="index.html" class="mobile-link">Home</a>
                 <a href="services.html" class="mobile-link">Services</a>
-                <a href="about.html" class="mobile-link">About</a>
+                <div class="nav-dropdown">
+                    <span class="mobile-link dropdown-toggle" onclick="this.parentElement.classList.toggle('active')">About <i class="fa-solid fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="mobile-link" style="font-size: 1.2rem;">About SkyLine</a>
+                        <a href="industries.html" class="mobile-link" style="font-size: 1.2rem;">Industries</a>
+                    </div>
+                </div>
                 <a href="jobs.html" class="mobile-link">Jobs</a>
                 <a href="contact.html" class="mobile-link">Contact</a>
                 <a href="hire-talent.html" class="btn btn-primary mt-4">Hire Now</a>

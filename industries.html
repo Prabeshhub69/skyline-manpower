@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries We Serve | Skyline</title>
+    <meta name="description"
+        content="Discover the key industries we serve at Skyline, including Hospitality, IT, Office Administration, Healthcare, and Construction.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(13, 27, 62, 0.8), rgba(13, 27, 62, 0.9)), url('workforce.jpg') center/cover;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: white;
+        }
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-users-gear"></i> Skyline
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-toggle">About <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html">About SkyLine</a>
+                        <a href="industries.html" class="active">Industries</a>
+                    </div>
+                </div>
+                <a href="jobs.html">Jobs</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="hire-talent.html" class="btn btn-primary">Hire Now</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="services.html" class="mobile-link">Services</a>
+                <div class="nav-dropdown">
+                    <span class="mobile-link dropdown-toggle" onclick="this.parentElement.classList.toggle('active')">About <i class="fa-solid fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="mobile-link" style="font-size: 1.2rem;">About SkyLine</a>
+                        <a href="industries.html" class="mobile-link active" style="font-size: 1.2rem;">Industries</a>
+                    </div>
+                </div>
+                <a href="jobs.html" class="mobile-link">Jobs</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="hire-talent.html" class="btn btn-primary mt-4">Hire Now</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="badge badge-accent">Areas of Expertise</div>
+            <h1 class="page-title">Industries We Serve</h1>
+            <p>From hospitality to high-tech, we connect leading global employers with specialized, hardworking talent from Nepal across a variety of crucial sectors.</p>
+        </div>
+    </section>
+
+    <!-- Industries Main Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="industries-layout">
+                
+                <!-- Sidebar -->
+                <aside class="industry-sidebar">
+                    <div class="industry-tab active" data-target="hospitality">
+                        <i class="fa-solid fa-hotel"></i>
+                        <span>Hospitality & Hotel</span>
+                    </div>
+                    <div class="industry-tab" data-target="it">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span>IT & Digital Industry</span>
+                    </div>
+                    <div class="industry-tab" data-target="office">
+                        <i class="fa-solid fa-building"></i>
+                        <span>Office Administration</span>
+                    </div>
+                    <div class="industry-tab" data-target="healthcare">
+                        <i class="fa-solid fa-user-nurse"></i>
+                        <span>Healthcare</span>
+                    </div>
+                    <div class="industry-tab" data-target="security">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Security Services</span>
+                    </div>
+                    <div class="industry-tab" data-target="logistics">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Logistics</span>
+                    </div>
+                    <div class="industry-tab" data-target="maintenance">
+                        <i class="fa-solid fa-tools"></i>
+                        <span>Maintenance & Technical</span>
+                    </div>
+                </aside>
+
+                <!-- Content Area -->
+                <main class="industry-content-area">
+                    
+                    <!-- Hospitality Panel -->
+                    <div class="industry-panel active" id="panel-hospitality">
+                        <img src="hospitality.jpg" alt="Hospitality Industry" class="industry-image">
+                        <h2 class="industry-title">Hospitality & Hotel</h2>
+                        <p class="industry-desc">The global hospitality industry demands service-oriented, friendly, and resilient professionals. We supply top-tier personnel for hotels, resorts, restaurants, and catering services across the Middle East and Southeast Asia, ensuring guest satisfaction and operational excellence.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">Nepali workers are renowned for their naturally hospitable and polite demeanor, making them a perfect fit for the service-oriented hospitality sector. With strong English communication skills and an innate ability to adapt to diverse cultural environments, they bring a high level of dedication and an excellent work ethic to every role they undertake.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>Waiters, Waitresses & Bartenders</li>
+                                        <li>Commis, Demi & Executive Chefs</li>
+                                        <li>Housekeeping & Laundry Staff</li>
+                                        <li>Front Office & Guest Relations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IT Panel -->
+                    <div class="industry-panel" id="panel-it">
+                        <img src="technician.jpg" alt="IT and Digital Industry" class="industry-image">
+                        <h2 class="industry-title">IT & Digital Industry</h2>
+                        <p class="industry-desc">As digital transformation accelerates globally, the need for skilled tech talent has never been higher. We provide highly trained and certified IT professionals, from network engineers to software developers, ready to deploy and integrate into modern technology environments.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">With a rapidly growing tech education sector, Nepal is producing a new generation of IT professionals proficient in modern tech stacks and digital tools. These workers bring strong analytical and problem-solving skills to the table, providing cost-effective and high-quality technical output for global digital operations.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>Software Developers & Engineers</li>
+                                        <li>Network Administrators & Tech Support</li>
+                                        <li>Data Entry & Digital Operations</li>
+                                        <li>System Technicians & Analyts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Admin Panel -->
+                    <div class="industry-panel" id="panel-office">
+                        <img src="office.jpg" alt="Office Administration" class="industry-image">
+                        <h2 class="industry-title">Office Administration</h2>
+                        <p class="industry-desc">The backbone of any successful enterprise is its administrative staff. We source reliable, organized, and proactive administrative personnel who keep day-to-day operations running smoothly in corporate offices, multinational corporations, and local businesses.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">Nepali administrative professionals often come from strong educational backgrounds with high fluency in both spoken and written English. Known for their detail-oriented and disciplined approach, they are regarded as trustworthy and loyal long-term employees who excel in maintaining smooth corporate operations.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>Receptionists & Front Desk Executives</li>
+                                        <li>Secretaries & Executive Assistants</li>
+                                        <li>Data Entry Operators & Office Assistants</li>
+                                        <li>Customer Service & HR Assistants</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare Panel -->
+                    <div class="industry-panel" id="panel-healthcare">
+                        <img src="hospital.jpg" alt="Healthcare Industry" class="industry-image">
+                        <h2 class="industry-title">Healthcare</h2>
+                        <p class="industry-desc">Healthcare facilities require staff with both technical expertise and profound empathy. Explore our rigorous recruitment process for nurses, caregivers, and allied health professionals who are ready to provide exceptional care in international hospitals and clinics.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">Nepali healthcare workers benefit from internationally recognized nursing training and are deeply rooted in cultural values of care and respect. Their ability to remain calm and resilient in high-pressure situations, combined with a steadfast commitment to patient safety, makes them invaluable assets to any medical facility.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>Registered Nurses (RN) & Midwives</li>
+                                        <li>Healthcare Assistants & Caregivers</li>
+                                        <li>Laboratory Technicians</li>
+                                        <li>Pharmacy Assistants</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Construction Panel -->
+                    <div class="industry-panel" id="panel-construction">
+                        <img src="construction.jpg" alt="Construction Industry" class="industry-image">
+                        <h2 class="industry-title">Construction</h2>
+                        <p class="industry-desc">Building the future requires a strong, skilled, and dedicated workforce. Nepali workers have been a cornerstone of infrastructural development in the Gulf and beyond. We supply both skilled tradesmen and general labor for massive civil and commercial projects.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">Renowned for their exceptional physical strength and endurance, Nepali workers have a long history of success in global construction projects. They are highly disciplined, safety-conscious, and possess the remarkable ability to maintain high productivity even when working in extreme weather conditions.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>Masons, Plasterers & Carpenters</li>
+                                        <li>Steel Fixers & Scaffolders</li>
+                                        <li>Heavy Equipment Operators</li>
+                                        <li>Electricians & Plumbers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Panel -->
+                    <div class="industry-panel" id="panel-security">
+                        <img src="security.jpg" alt="Security Services" class="industry-image">
+                        <h2 class="industry-title">Security Services</h2>
+                        <p class="industry-desc">Safety and vigilance are non-negotiable in today's world. We provide disciplined and well-trained security personnel who are committed to protecting assets, personnel, and information across various sectors, from corporate offices to industrial sites.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">Nepali security guards, often with backgrounds in the military or police, are world-renowned for their loyalty, bravery, and discipline. Their deep-rooted sense of duty and integrity makes them the first choice for high-stakes security roles globally.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>SIRA Certified Guards</li>
+                                        <li>Security Supervisors & Officers</li>
+                                        <li>CCTV Operators & Tech Guards</li>
+                                        <li>Bodyguards & VIP Protection</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logistics Panel -->
+                    <div class="industry-panel" id="panel-logistics">
+                        <img src="logisistic.jpg" alt="Logistics" class="industry-image">
+                        <h2 class="industry-title">Logistics & Supply Chain</h2>
+                        <p class="industry-desc">Efficient logistics is the lifeblood of global trade. We supply a reliable workforce for the logistics and supply chain industry, ensuring that goods move smoothly from warehouses to their final destinations through expert handling and coordination.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">Nepali logistics workers are known for their punctuality, spatial awareness, and ability to handle complex inventory tasks with precision. Whether it's driving heavy vehicles or managing large-scale warehouses, their dedication ensures operational efficiency.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>Heavy & Light Vehicle Drivers</li>
+                                        <li>Forklift & Crane Operators</li>
+                                        <li>Warehouse Staff & Inventory Clerks</li>
+                                        <li>Logistics & Dispatch Coordinators</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maintenance Panel -->
+                    <div class="industry-panel" id="panel-maintenance">
+                        <img src="technician.jpg" alt="Maintenance & Technical" class="industry-image">
+                        <h2 class="industry-title">Maintenance & Technical</h2>
+                        <p class="industry-desc">Keeping infrastructure in peak condition requires specialized technical expertise. We source highly skilled technicians and supervisors who specialize in the upkeep of modern buildings, industrial plants, and utility systems.</p>
+                        
+                        <div class="industry-definitions">
+                            <div class="industry-fit-section">
+                                <h3 class="industry-question">Why Nepali Workers Fit In?</h3>
+                                <p class="industry-desc">Nepali technical workers are highly valued for their attention to detail and their ability to quickly master complex mechanical and electrical systems. Their resilience and steady hands make them ideal for maintenance roles that require both precision and physical stamina.</p>
+                            </div>
+                            
+                            <div class="industry-jobs-section">
+                                <h4><i class="fa-solid fa-briefcase"></i> Types of Jobs Offered</h4>
+                                <div class="industry-box">
+                                    <ul>
+                                        <li>HVAC Technicians & MEP Supervisors</li>
+                                        <li>General Handymen & Facility Techs</li>
+                                        <li>Electricians & Plumbers (Maintenance)</li>
+                                        <li>Boiler & Plant Operators</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-padding">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Need reliable manpower for an upcoming project?</h2>
+                    <p class="cta-text">Join hundreds of companies across the Gulf and Malaysia that trust Skyline.
+                        Let's discuss your manpower demand today.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="hire-talent.html" class="btn btn-primary btn-large bg-white text-primary">Submit Demand
+                        Letter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+                    </a>
+                    <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to
+                        Qatar, Malaysia, UAE, and Saudi Arabia.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Overseas Recruitment</a></li>
+                        <li><a href="services.html">Visa Processing</a></li>
+                        <li><a href="services.html">Trade Testing</a></li>
+                        <li><a href="services.html">Deployment</a></li>
+                        <li><a href="hire-talent.html">Submit Demand</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Licenses</a></li>
+                        <li><a href="jobs.html">Current Openings</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Baneshwor, Kathmandu<br>Bagmati Province, Nepal</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+977-1-4XXXXXX</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="355c5b535a75465e4c595c5b5058545b455a4250471b565a581b5b45">[email&#160;protected]</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skyline Overseas Manpower Pvt. Ltd. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab switching logic for industries page
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.industry-tab');
+            const panels = document.querySelectorAll('.industry-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active to clicked tab
+                    tab.classList.add('active');
+
+                    // Hide all panels
+                    panels.forEach(p => p.classList.remove('active'));
+                    
+                    // Show target panel
+                    const targetId = `panel-${tab.dataset.target}`;
+                    const targetPanel = document.getElementById(targetId);
+                    if (targetPanel) {
+                        targetPanel.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
