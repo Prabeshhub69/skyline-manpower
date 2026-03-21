@@ -75,6 +75,22 @@
             color: var(--secondary);
             margin: 0;
             font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .country-flag-placeholder {
+            width: 60px;
+            height: 40px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            display: inline-block;
+            overflow: hidden;
+        }
+        .country-flag-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .country-info p {
             font-size: 1.15rem;
@@ -100,42 +116,46 @@
             font-size: 1.5rem;
         }
 
-        /* Visa Cards */
-        .visa-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+        /* Points style for Visa and Documents */
+        .points-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 3rem;
         }
-        .visa-card {
-            background: #ffffff;
-            border-radius: var(--radius-md);
-            padding: 2.5rem;
-            border: 1px solid #e2e8f0;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .points-list li {
             position: relative;
-            z-index: 1;
-        }
-        .visa-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary-light);
-        }
-        .visa-card h4 {
-            color: var(--secondary);
-            font-size: 1.35rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .visa-card h4 i {
-            color: var(--primary);
-            margin-right: 8px;
-        }
-        .visa-card p {
-            font-size: 1rem;
-            color: var(--text-muted);
+            padding-left: 2.5rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
             line-height: 1.6;
+            color: var(--text-main);
+        }
+        .points-list li::before {
+            content: "\f00c"; /* FontAwesome Check */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #10b981;
+            font-size: 1.25rem;
+            background: rgba(16, 185, 129, 0.1);
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .points-list.visa-points li::before {
+            content: "\f0f2"; /* FontAwesome Case */
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+        .points-list li strong {
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
         /* Application Steps */
@@ -181,36 +201,7 @@
         }
 
         /* Document Checklist */
-        .doc-checklist {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .doc-checklist li {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 1.5rem;
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #f1f5f9;
-            font-size: 1rem;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-        }
-        .doc-checklist li:hover {
-            box-shadow: var(--shadow-md);
-            border-color: #cbd5e1;
-        }
-        .doc-checklist li i {
-            color: #10b981;
-            font-size: 1.4rem;
-            margin-top: 2px;
-        }
+        /* Removed .doc-checklist grid styles in favor of .points-list */
         .doc-note {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -377,7 +368,12 @@
                 
                 <!-- About Romania -->
                 <div class="country-header">
-                    <h2><i class="fa-solid fa-earth-europe"></i> Romania</h2>
+                    <h2>
+                        <div class="country-flag-placeholder">
+                            <img src="Romania.webp" alt="Romanian Flag">
+                        </div>
+                        Romania
+                    </h2>
                 </div>
                 <div class="country-info">
                     <p>Romania is an Eastern European country (EU member since 2007) with its capital at Bucharest. It has about 19 million inhabitants and covers 238,398 km².</p>
@@ -388,24 +384,24 @@
                 <h3 class="section-highlight"><i class="fa-solid fa-passport"></i> Visa Categories & Application Process</h3>
                 <p class="text-muted" style="font-size:1.1rem; margin-bottom:2rem;">Nepali citizens need a national long‑stay (Type D) visa for employment, often labeled D/Am (work).</p>
                 
-                <div class="visa-grid">
-                    <div class="visa-card">
-                        <h4><i class="fa-solid fa-briefcase"></i> Permanent/Regular worker</h4>
-                        <p>Employed under an indefinite or fixed-term contract.</p>
-                    </div>
-                    <div class="visa-card">
-                        <h4><i class="fa-solid fa-user-graduate"></i> Highly qualified (EU Blue Card)</h4>
-                        <p>For workers with a university degree hired for highly skilled jobs. This also requires a work permit but offers EU-Blue-Card–like status.</p>
-                    </div>
-                    <div class="visa-card">
-                        <h4><i class="fa-solid fa-leaf"></i> Seasonal worker</h4>
-                        <p>For work tied to seasonal industries (agriculture, tourism). This visa is tied to a fixed-term contract.</p>
-                    </div>
-                    <div class="visa-card">
-                        <h4><i class="fa-solid fa-building-user"></i> Intra-company posted worker</h4>
-                        <p>For qualified employees temporarily sent by a foreign-based employer (deployment visa).</p>
-                    </div>
-                </div>
+                <ul class="points-list visa-points">
+                    <li>
+                        <strong>Permanent/Regular worker</strong>
+                        Employed under an indefinite or fixed-term contract.
+                    </li>
+                    <li>
+                        <strong>Highly qualified (EU Blue Card)</strong>
+                        For workers with a university degree hired for highly skilled jobs. This also requires a work permit but offers EU-Blue-Card–like status.
+                    </li>
+                    <li>
+                        <strong>Seasonal worker</strong>
+                        For work tied to seasonal industries (agriculture, tourism). This visa is tied to a fixed-term contract.
+                    </li>
+                    <li>
+                        <strong>Intra-company posted worker</strong>
+                        For qualified employees temporarily sent by a foreign-based employer (deployment visa).
+                    </li>
+                </ul>
                 <p style="margin-bottom:2rem;"><em>Nepalese applicants typically pursue the standard work visa (with permit); Blue Card is an option if highly qualified.</em></p>
 
                 <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--secondary);">Eligibility & Legal Basis</h4>
@@ -454,18 +450,18 @@
                 <!-- Documents Checklist -->
                 <h3 class="section-highlight"><i class="fa-solid fa-list-check"></i> Documents Checklist</h3>
                 <p class="text-muted" style="margin-bottom: 2rem;">To apply, Nepali citizens must prepare (with Romanian translations and legalization):</p>
-                <ul class="doc-checklist">
-                    <li><i class="fa-solid fa-circle-check"></i> Passport (valid ≥ 3 months beyond stay, plus copies).</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Photos: Two passport-size.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Work Permit: Copy of IGI-issued work permit or permit approval letter.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Employment Contract/Offer: Signed job contract.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Criminal Record: Police clearance certificate from Nepal (apostilled by Nepali authorities, translated).</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Medical Certificate: A health certificate showing fitness/no contagious diseases (must be legalized/translated).</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Medical Insurance: Proof of travel/health insurance valid in Romania for visa duration.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Proof of Funds: Employers often provide proof of sufficient salary (≥ Romania’s minimum wage).</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Accommodation: Address in Romania (hotel booking or company-provided lodging).</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Qualifications: Degrees or certificates (apostilled and translated) if job requires.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Filled Visa Form: National visa application form (embassy website).</li>
+                <ul class="points-list doc-points">
+                    <li><strong>Passport:</strong> Valid ≥ 3 months beyond stay, plus copies.</li>
+                    <li><strong>Photos:</strong> Two passport-size.</li>
+                    <li><strong>Work Permit:</strong> Copy of IGI-issued work permit or permit approval letter.</li>
+                    <li><strong>Employment Contract/Offer:</strong> Signed job contract.</li>
+                    <li><strong>Criminal Record:</strong> Police clearance certificate from Nepal (apostilled by Nepali authorities, translated).</li>
+                    <li><strong>Medical Certificate:</strong> A health certificate showing fitness/no contagious diseases (must be legalized/translated).</li>
+                    <li><strong>Medical Insurance:</strong> Proof of travel/health insurance valid in Romania for visa duration.</li>
+                    <li><strong>Proof of Funds:</strong> In practice, employers often provide proof of sufficient salary (≥ Romania’s minimum wage).</li>
+                    <li><strong>Accommodation:</strong> Address in Romania (hotel booking or company-provided lodging).</li>
+                    <li><strong>Qualifications:</strong> Degrees or certificates (apostilled and translated) if job requires (especially for professionals).</li>
+                    <li><strong>Filled Visa Form:</strong> National visa application form (embassy website).</li>
                 </ul>
                 <div class="doc-note">
                     <strong>Note:</strong> All foreign documents must typically be legalized with an Apostille (Nepal is party to the Hague Convention) and translated into Romanian (or English) by an authorized translator.
