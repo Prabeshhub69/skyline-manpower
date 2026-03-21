@@ -94,26 +94,41 @@
         ================================================ */
         .process-section {
             padding: var(--section-pad) 0;
-            background: linear-gradient(135deg, var(--bg-light), var(--bg-main));
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             overflow: hidden;
             position: relative;
         }
 
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(67, 56, 202, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
         .process-section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .process-section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.15;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
             color: var(--secondary);
-            margin: 0 0 1rem;
+            margin-bottom: 1.25rem;
         }
 
         .process-section-header h2 span {
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .process-section-header p {
@@ -127,22 +142,22 @@
         /* ---- Timeline Layout ---- */
         .process-timeline {
             position: relative;
-            max-width: 860px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 2rem 1rem;
         }
 
         .timeline-spine {
             position: absolute;
             left: 50%;
-            top: 24px;
-            bottom: 24px;
-            width: 2px;
-            background: linear-gradient(to bottom,
-                transparent 0%,
-                var(--border, rgba(0,0,0,0.1)) 8%,
-                var(--border, rgba(0,0,0,0.1)) 92%,
-                transparent 100%
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, 
+                rgba(67, 56, 202, 0) 0%, 
+                rgba(67, 56, 202, 0.2) 10%, 
+                rgba(67, 56, 202, 0.2) 90%, 
+                rgba(67, 56, 202, 0) 100%
             );
             transform: translateX(-50%);
             z-index: 0;
@@ -151,183 +166,189 @@
         /* ---- Individual Step ---- */
         .proc-step {
             display: grid;
-            grid-template-columns: 1fr 60px 1fr;
-            align-items: start;
-            gap: 0;
-            margin-bottom: 2rem;
+            grid-template-columns: 1fr 80px 1fr;
+            align-items: center;
+            margin-bottom: 4rem;
             position: relative;
             z-index: 1;
         }
 
-        .proc-step:last-child { margin-bottom: 0; }
+        .proc-step:last-child {
+            margin-bottom: 0;
+        }
 
-        .proc-step .slot-left  { padding-right: 2rem; text-align: right; }
-        .proc-step .slot-right { padding-left: 2rem;  text-align: left;  }
+        .proc-step .slot-left {
+            padding-right: 3rem;
+            text-align: right;
+            transform-origin: right center;
+        }
+
+        .proc-step .slot-right {
+            padding-left: 3rem;
+            text-align: left;
+            transform-origin: left center;
+        }
 
         /* Center node */
         .proc-node-wrap {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 6px;
+            justify-content: center;
         }
 
         .proc-node {
-            width: 52px;
-            height: 52px;
+            width: 64px;
+            height: 64px;
+            background: var(--white);
+            border: 2px solid var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            flex-shrink: 0;
-            border: 2px solid var(--primary);
-            background: var(--bg-light);
+            font-size: 1.5rem;
             color: var(--primary);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
-            position: relative;
+            box-shadow: 0 0 0 8px rgba(67, 56, 202, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 2;
-            cursor: default;
         }
 
         .proc-step:hover .proc-node {
-            background: var(--primary);
-            color: #fff;
             transform: scale(1.1);
-            box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,0.12));
-        }
-
-        /* Final step node uses accent colour */
-        .proc-step.is-final .proc-node {
-            border-color: var(--accent, var(--primary));
-            color: var(--accent, var(--primary));
-        }
-
-        .proc-step.is-final:hover .proc-node {
-            background: var(--accent, var(--primary));
-            color: #fff;
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 0 0 12px rgba(67, 56, 202, 0.1), var(--shadow-lg);
         }
 
         /* ---- Step Card ---- */
         .step-card {
-            background: var(--bg-card, #ffffff);
-            border: 1px solid var(--border, rgba(0,0,0,0.08));
-            border-radius: var(--radius-lg, 14px);
-            padding: 1.1rem 1.25rem;
-            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-            cursor: default;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
             position: relative;
         }
 
         .proc-step:hover .step-card {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,0.08));
-        }
-
-        /* Final step highlighted card */
-        .proc-step.is-final .step-card {
-            border-color: var(--accent, var(--primary));
-            border-width: 1.5px;
-        }
-
-        .proc-step.is-final:hover .step-card {
-            border-color: var(--accent, var(--primary));
-            box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,0.1));
-        }
-
-        /* Connector ticks from card to node */
-        .slot-left .step-card::after {
-            content: '';
-            position: absolute;
-            right: -2rem;
-            top: 28px;
-            width: 2rem;
-            height: 1px;
-            background: var(--border, rgba(0,0,0,0.12));
-        }
-
-        .slot-right .step-card::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 28px;
-            width: 2rem;
-            height: 1px;
-            background: var(--border, rgba(0,0,0,0.12));
+            background: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(67, 56, 202, 0.1);
+            border-color: rgba(67, 56, 202, 0.2);
         }
 
         .step-tag {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: var(--primary);
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .proc-step.is-final .step-tag {
-            color: var(--accent, var(--primary));
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            background: rgba(67, 56, 202, 0.05);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
         }
 
         .step-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--secondary);
-            line-height: 1.35;
-            margin: 0 0 5px;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
         }
 
         .step-detail {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.82rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin: 0;
             line-height: 1.6;
         }
 
-        /* ---- Responsive: stack on mobile ---- */
-        @media (max-width: 680px) {
-            .timeline-spine { left: 26px; }
+        /* Final step uses accent color */
+        .is-final .proc-node {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 0 8px rgba(14, 165, 233, 0.05);
+        }
 
-            .proc-step {
-                grid-template-columns: 60px 1fr;
-                margin-bottom: 1.5rem;
+        .is-final:hover .proc-node {
+            background: var(--accent);
+            box-shadow: 0 0 0 12px rgba(14, 165, 233, 0.1), var(--shadow-lg);
+        }
+
+        .is-final .step-tag {
+            color: var(--accent);
+            background: rgba(14, 165, 233, 0.05);
+        }
+
+        /* Connector Ticks */
+        .slot-left .step-card::after,
+        .slot-right .step-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 32px;
+            height: 2px;
+            background: rgba(67, 56, 202, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .slot-left .step-card::after {
+            right: -32px;
+        }
+
+        .slot-right .step-card::after {
+            left: -32px;
+        }
+
+        .proc-step:hover .step-card::after {
+            background: var(--primary);
+            width: 40px;
+        }
+
+        .proc-step:hover .slot-left .step-card::after {
+            right: -40px;
+        }
+        .proc-step:hover .slot-right .step-card::after {
+            left: -40px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .timeline-spine {
+                left: 32px;
             }
 
-            .proc-step .slot-empty { display: none; }
+            .proc-step {
+                grid-template-columns: 64px 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
 
-            /* On mobile, odd steps: node left, card right — same for all */
-            .proc-step .slot-left {
+            .slot-empty {
                 display: none;
             }
 
-            /* Reorder odd steps so node is first, card second */
-            .proc-step:not(.even-step) {
-                direction: ltr;
-            }
-
-            .proc-step:not(.even-step) .slot-left {
-                display: block;
-                padding-right: 0;
-                padding-left: 1rem;
+            .proc-step .slot-left,
+            .proc-step .slot-right {
+                grid-column: 2;
+                padding: 0;
                 text-align: left;
-                order: 2;
             }
 
-            .proc-step:not(.even-step) .proc-node-wrap {
-                order: 1;
+            .slot-left .step-card::after,
+            .slot-right .step-card::after {
+                left: -2rem;
+                width: 2rem;
+                right: auto;
             }
 
-            .step-card::before,
-            .step-card::after { display: none; }
-
-            .process-section-header h2 { font-size: 2rem; }
+            .proc-step:hover .slot-left .step-card::after {
+                left: -2.5rem;
+                width: 2.5rem;
+            }
+            .process-section-header h2 { font-size: 2.25rem; }
         }
 
     </style>
@@ -348,6 +369,7 @@
                     <div class="dropdown-menu">
                         <a href="about.html">About SkyLine</a>
                         <a href="industries.html">Industries</a>
+                        <a href="countries.html">Countries</a>
                     </div>
                 </div>
                 <a href="jobs.html">Jobs</a>
@@ -376,6 +398,7 @@
                     <div class="dropdown-menu">
                         <a href="about.html" class="mobile-link" style="font-size: 1.2rem;">About SkyLine</a>
                         <a href="industries.html" class="mobile-link" style="font-size: 1.2rem;">Industries</a>
+                        <a href="countries.html" class="mobile-link" style="font-size: 1.2rem;">Countries</a>
                     </div>
                 </div>
                 <a href="jobs.html" class="mobile-link">Jobs</a>
@@ -500,14 +523,14 @@
                             <p class="step-detail">The overseas employer issues an official demand letter specifying job categories, quantities, salaries, and deployment terms.</p>
                         </div>
                     </div>
-                    <div class="proc-node-wrap"><div class="proc-node">1</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-file-invoice"></i></div></div>
                     <div class="slot-empty"></div>
                 </div>
 
                 <!-- Step 2 — RIGHT -->
                 <div class="proc-step">
                     <div class="slot-empty"></div>
-                    <div class="proc-node-wrap"><div class="proc-node">2</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-stamp"></i></div></div>
                     <div class="slot-right">
                         <div class="step-card">
                             <span class="step-tag">Compliance</span>
@@ -526,14 +549,14 @@
                             <p class="step-detail">Vacancy campaigns are published via national newspapers, digital platforms, radio, and our extensive rural outreach network across Nepal.</p>
                         </div>
                     </div>
-                    <div class="proc-node-wrap"><div class="proc-node">3</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-bullhorn"></i></div></div>
                     <div class="slot-empty"></div>
                 </div>
 
                 <!-- Step 4 — RIGHT -->
                 <div class="proc-step">
                     <div class="slot-empty"></div>
-                    <div class="proc-node-wrap"><div class="proc-node">4</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-user-check"></i></div></div>
                     <div class="slot-right">
                         <div class="step-card">
                             <span class="step-tag">Selection</span>
@@ -552,14 +575,14 @@
                             <p class="step-detail">An employer panel or appointed proxy conducts interviews. Skilled roles (welders, drivers, carpenters) undergo live practical trade testing at certified institutes.</p>
                         </div>
                     </div>
-                    <div class="proc-node-wrap"><div class="proc-node">5</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-tools"></i></div></div>
                     <div class="slot-empty"></div>
                 </div>
 
                 <!-- Step 6 — RIGHT -->
                 <div class="proc-step">
                     <div class="slot-empty"></div>
-                    <div class="proc-node-wrap"><div class="proc-node">6</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-file-medical"></i></div></div>
                     <div class="slot-right">
                         <div class="step-card">
                             <span class="step-tag">Health</span>
@@ -578,14 +601,14 @@
                             <p class="step-detail">Skyline coordinates embassy stamping, contract attestation, police clearances, and work visa issuance for every selected candidate.</p>
                         </div>
                     </div>
-                    <div class="proc-node-wrap"><div class="proc-node">7</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-passport"></i></div></div>
                     <div class="slot-empty"></div>
                 </div>
 
                 <!-- Step 8 — RIGHT -->
                 <div class="proc-step">
                     <div class="slot-empty"></div>
-                    <div class="proc-node-wrap"><div class="proc-node">8</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-chalkboard-user"></i></div></div>
                     <div class="slot-right">
                         <div class="step-card">
                             <span class="step-tag">Preparation</span>
@@ -604,14 +627,14 @@
                             <p class="step-detail">DOFE labour clearance, insurance certificates, and departure permits are issued and cross-verified before travel arrangements are confirmed.</p>
                         </div>
                     </div>
-                    <div class="proc-node-wrap"><div class="proc-node">9</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-clipboard-check"></i></div></div>
                     <div class="slot-empty"></div>
                 </div>
 
                 <!-- Step 10 — RIGHT (final, accented) -->
                 <div class="proc-step is-final">
                     <div class="slot-empty"></div>
-                    <div class="proc-node-wrap"><div class="proc-node">10</div></div>
+                    <div class="proc-node-wrap"><div class="proc-node"><i class="fa-solid fa-plane-departure"></i></div></div>
                     <div class="slot-right">
                         <div class="step-card">
                             <span class="step-tag">Deployment</span>
