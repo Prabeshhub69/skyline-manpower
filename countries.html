@@ -15,7 +15,19 @@
     <!-- Mermaid Flowchart Script -->
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#f1f5f9', primaryTextColor: '#1e293b', primaryBorderColor: '#6366f1', lineColor: '#6366f1', secondaryColor: '#e0e7ff', tertiaryColor: '#fff' } });
+        mermaid.initialize({ 
+            startOnLoad: false, 
+            theme: 'base', 
+            themeVariables: { 
+                primaryColor: '#f1f5f9', 
+                primaryTextColor: '#1e293b', 
+                primaryBorderColor: '#6366f1', 
+                lineColor: '#6366f1', 
+                secondaryColor: '#e0e7ff', 
+                tertiaryColor: '#fff' 
+            } 
+        });
+        window.mermaid = mermaid;
     </script>
     <style>
         .page-header {
@@ -281,6 +293,118 @@
             color: #94a3b8;
         }
 
+        /* Countries Sidebar Layout */
+        .countries-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            align-items: start;
+        }
+        .country-sidebar {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: sticky;
+            top: 110px;
+        }
+        .country-sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .country-tab {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+            border: 1px solid transparent;
+        }
+        .country-tab:hover {
+            background: #f8fafc;
+            border-color: #e2e8f0;
+        }
+        .country-tab.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+        .country-tab img {
+            width: 32px;
+            height: 22px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+        .country-tab-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .country-tab-name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .country-tab-topic {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+        .country-tab.active .country-tab-topic {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .country-content-area {
+            min-height: 800px;
+        }
+
+        @media (max-width: 1024px) {
+            .countries-layout {
+                grid-template-columns: 1fr;
+            }
+            .country-sidebar {
+                position: static;
+                display: flex;
+                overflow-x: auto;
+                padding: 1rem;
+                gap: 1rem;
+                white-space: nowrap;
+            }
+            .country-tab {
+                margin-bottom: 0;
+                flex: 0 0 auto;
+            }
+            .country-sidebar-title {
+                display: none;
+            }
+        }
+
+        .country-details-wrapper {
+            position: relative;
+        }
+        .country-card {
+            display: none; /* Hidden by default, toggled via JS */
+        }
+        .country-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 768px) {
             .country-card {
                 padding: 2rem;
@@ -362,9 +486,37 @@
 
     <!-- Main Content -->
     <section class="country-section">
-        <div class="container container-narrow">
+        <div class="container">
             
-            <div class="country-card fade-in-up">
+            <div class="countries-layout">
+                
+                <!-- Sidebar -->
+                <aside class="country-sidebar fade-in-up">
+                    <h3 class="country-sidebar-title">
+                        <i class="fa-solid fa-earth-americas"></i> Select Country
+                    </h3>
+                    <div class="country-tab active" onclick="showCountry('romania', this)">
+                        <img src="Romania.webp" alt="Romania Flag">
+                        <div class="country-tab-text">
+                            <span class="country-tab-name">Romania</span>
+                            <span class="country-tab-topic">Jobs in Romania</span>
+                        </div>
+                    </div>
+                    <div class="country-tab" onclick="showCountry('malaysia', this)">
+                        <img src="Malaysia.png" alt="Malaysia Flag">
+                        <div class="country-tab-text">
+                            <span class="country-tab-name">Malaysia</span>
+                            <span class="country-tab-topic">Jobs in Malaysia</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Content Area -->
+                <main class="country-content-area">
+                    <div class="country-details-wrapper">
+                
+                <!-- Romania Details -->
+                <div id="romania" class="country-card active fade-in-up">
                 
                 <!-- About Romania -->
                 <div class="country-header">
@@ -471,8 +623,6 @@
                 <div class="culture-box">
                     <h3><i class="fa-solid fa-comments"></i> Romanian Work Culture</h3>
                     <p>Romanian work culture combines professionalism with a friendly and approachable environment. The official language is Romanian, but English is widely used in sectors like IT, finance, and multinational companies, while blue-collar jobs mostly require Romanian.</p>
-                    <p>The standard work schedule is 8 hours per day and 5 days a week, totaling 40 hours, with overtime allowed under legal limits. Employees are entitled to paid leave and public holidays, and working on holidays requires extra pay or compensatory leave.</p>
-                    <p>Teamwork and flexibility are highly valued, especially in modern workplaces. Although companies may follow a hierarchical structure, many encourage ideas from junior employees. Communication in Romania is often direct, so clarity is important.</p>
                     <p>Nepali workers should be respectful, punctual, and reliable, as these qualities are highly appreciated. Learning basic Romanian phrases can help in daily interactions. It is also important to understand labor laws, as employees usually get at least 20 days of annual leave and standard worker rights are protected.</p>
                 </div>
 
@@ -521,11 +671,166 @@
                     <span><strong>Note:</strong> Salaries are approximate and can differ depending on factors such as experience, location in Romania, and the employer. In many cases, lower salary packages may also include benefits like accommodation and transportation support.</span>
                 </div>
 
-            </div> <!-- /.country-card -->
-            
-        </div>
-    </section>
+            </div> <!-- /#romania -->
 
+            <!-- Malaysia Details -->
+            <div id="malaysia" class="country-card fade-in-up">
+                
+                <div class="country-header">
+                    <h2>
+                        <div class="country-flag-placeholder">
+                            <img src="Malaysia.png" alt="Malaysian Flag">
+                        </div>
+                        Malaysia
+                    </h2>
+                </div>
+                <div class="country-info">
+                    <p>Malaysia is a vibrant Southeast Asian country with its capital at Kuala Lumpur. It has a population of about 34 million and is known for its diverse multiracial culture and strong economy.</p>
+                    <p>The official language is Malay (Bahasa Malaysia), but English is widely spoken in business and daily life. Key industries include manufacturing (electronics, semiconductors), agriculture (palm oil, rubber), construction, and services.</p>
+                </div>
+
+                <!-- Visa Section -->
+                <h3 class="section-highlight"><i class="fa-solid fa-passport"></i> Visa Categories & Application Process</h3>
+                <p class="text-muted" style="font-size:1.1rem; margin-bottom:2rem;">Nepali citizens primarily enter Malaysia under the Pas Lawatan Kerja Sementara (PLKS) or Temporary Employment Visit Pass.</p>
+                
+                <ul class="points-list visa-points">
+                    <li>
+                        <strong>Manufacturing Sector</strong>
+                        Work in electronics, textiles, and assembly plants. Requires specialized focus on precision and safety.
+                    </li>
+                    <li>
+                        <strong>Construction Sector</strong>
+                        For large-scale infrastructure projects, high-rise buildings, and developmental works.
+                    </li>
+                    <li>
+                        <strong>Plantation & Agriculture</strong>
+                        Work in palm oil and rubber estates, focusing on harvesting and maintenance.
+                    </li>
+                    <li>
+                        <strong>Service Industry</strong>
+                        Includes cleaning services, hospitality, and logistics support.
+                    </li>
+                    <li>
+                        <strong>Security Services</strong>
+                        For qualified Nepalese security personnel (often ex-army or police) at corporate facilities and residential areas.
+                    </li>
+                </ul>
+                <p style="margin-bottom:2rem;"><em>Most Nepali workers come through the standard PLKS category with an employer-sponsored Calling Visa (VDR).</em></p>
+
+                <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--secondary);">Eligibility & Legal Basis</h4>
+                <p style="margin-bottom: 2rem; color: var(--text-muted); line-height: 1.6;">Nepali candidates must be between 18 and 45 years old (age limits can vary by sector). The recruitment process is governed by the bilateral labor agreement between Nepal and Malaysia. Employers must obtain a "Quota Approval" from the Malaysian Ministry of Human Resources before recruiting. Every worker must undergo a security clearance (ISC) and a medical examination at a Malaysia-approved health center in Nepal. Once all clearances are set, the Malaysian Immigration Department issues a Visa With Reference (VDR).</p>
+
+                <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--secondary);">Fees & Government Charges</h4>
+                <p style="margin-bottom: 3rem; color: var(--text-muted); line-height: 1.6;">The Malaysian government implements a "Employer Pays" policy for recruitment fees for certain categories, though medical and ISC fees in Nepal are initially paid by the candidate (often reimbursed). The Visa With Reference (VDR) stamping fee at the Malaysian Embassy in Kathmandu is approximately NPR 7,000–9,000. Levy charges are typically borne by the employer annually.</p>
+
+                <h4 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--secondary);">Application Steps</h4>
+                <ul class="process-list">
+                    <li>
+                        <strong>1. Selection & Interview</strong>
+                        <span>Candidates are selected by employers through interviews or document review in Nepal.</span>
+                    </li>
+                    <li>
+                        <strong>2. ISC & Medical Examination</strong>
+                        <span>Candidates undergo Integrated Security Clearance (ISC) and a thorough medical check-up at approved clinics.</span>
+                    </li>
+                    <li>
+                        <strong>3. Calling Visa (VDR)</strong>
+                        <span>Employer applies for the VDR in Malaysia. Once issued, it is sent to the recruitment agency in Nepal.</span>
+                    </li>
+                    <li>
+                        <strong>4. Visa Stamping</strong>
+                        <span>The passport is submitted to the Malaysian Embassy in Kathmandu for the entry visa (VDR Stamping).</span>
+                    </li>
+                    <li>
+                        <strong>5. Pre-Departure & Travel</strong>
+                        <span>Workers attend a mandatory pre-departure briefing and then travel to Malaysia to join their employer.</span>
+                    </li>
+                </ul>
+
+                <div class="flowchart-container">
+                    <div class="mermaid">
+                    flowchart LR
+                        A["Nepali Candidate"] -->|"Medical and ISC"| B("Recruitment Selection")
+                        B -->|"VDR Application"| C("Malaysian Immigration")
+                        C -->|"VDR Issued"| D("Malaysian Embassy Kathmandu")
+                        D -->|"Visa Stamped"| E["Work in Malaysia"]
+                        E -->|"Arrival and Entry"| F["Final Medical check and PLKS issuance"]
+                    </div>
+                </div>
+
+                <!-- Documents Checklist -->
+                <h3 class="section-highlight"><i class="fa-solid fa-list-check"></i> Documents Checklist</h3>
+                <p class="text-muted" style="margin-bottom: 2rem;">Ensure the following documents are ready for your Malaysia work application:</p>
+                <ul class="points-list doc-points">
+                    <li><strong>Passport:</strong> Original passport with at least 12 months validity.</li>
+                    <li><strong>Photos:</strong> 6 to 10 copies of professional photos with a white background.</li>
+                    <li><strong>Medical Report:</strong> Fitness certificate from FOMEMA-accredited centers.</li>
+                    <li><strong>ISC Certificate:</strong> Security clearance report.</li>
+                    <li><strong>Employment Contract:</strong> Signed and stamped Malaysian employment contract.</li>
+                    <li><strong>Citizenship Certificate:</strong> Copy of Nepali citizenship (Nagrita).</li>
+                    <li><strong>Approval Letters:</strong> Copies of Department of Foreign Employment (DOFE) approvals.</li>
+                </ul>
+
+                <!-- Culture -->
+                <div class="culture-box" style="background: linear-gradient(135deg, #0f172a 0%, #334155 100%);">
+                    <h3><i class="fa-solid fa-comments"></i> Malaysian Work Culture</h3>
+                    <p>Malaysia is a multicultural society where respect for diverse religions and customs is paramount. The workplace is often hierarchical, and "saving face" or maintaining harmony is very important in interactions.</p>
+                    <p>English and Malay are primary communication tools. Nepali workers are highly respected for their hard work and discipline, especially in security and manufacturing. Standard office hours are usually 48 hours per week with overtime opportunities depending on the sector.</p>
+                </div>
+
+                <!-- Job Summary -->
+                <h3 class="section-highlight"><i class="fa-solid fa-chart-line"></i> Job Summary</h3>
+                <div class="salary-table-wrapper">
+                    <table class="salary-table">
+                        <thead>
+                            <tr>
+                                <th>Industry</th>
+                                <th>Role</th>
+                                <th>Estimated Salary Range (MYR)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Manufacturing</td>
+                                <td>Factory Worker / Operator</td>
+                                <td>1,500 – 2,500</td>
+                            </tr>
+                            <tr>
+                                <td>Construction</td>
+                                <td>General Worker / Mason</td>
+                                <td>1,800 – 3,200</td>
+                            </tr>
+                            <tr>
+                                <td>Security</td>
+                                <td>Nepali Security Guard</td>
+                                <td>1,900 – 2,800</td>
+                            </tr>
+                            <tr>
+                                <td>Plantation</td>
+                                <td>Estate Worker</td>
+                                <td>1,500 – 2,200</td>
+                            </tr>
+                            <tr>
+                                <td>Services</td>
+                                <td>Cleaner / General Helper</td>
+                                <td>1,500 – 1,900</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="disclaimer">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span><strong>Note:</strong> Salaries are based on the minimum wage regulations and sector-specific agreements. Overtime and allowances can significantly increase the take-home pay.</span>
+                </div>
+
+            </div> <!-- /#malaysia -->
+
+        </div> <!-- /.country-details-wrapper -->
+    </main>
+</div> <!-- /.countries-layout -->
+
+</div>
+</section>
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="container">
@@ -609,7 +914,49 @@
             }, { threshold: 0.1 });
 
             document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // Initial Mermaid run for Romania (active by default)
+            setTimeout(() => {
+                if (window.mermaid) {
+                    window.mermaid.run({
+                        querySelector: '#romania .mermaid'
+                    });
+                }
+            }, 500);
         });
+
+        // Country switcher logic
+        function showCountry(countryId, element) {
+            // Update active state in selector
+            document.querySelectorAll('.country-tab').forEach(tab => tab.classList.remove('active'));
+            element.classList.add('active');
+
+            // Toggle country cards
+            document.querySelectorAll('.country-card').forEach(card => card.classList.remove('active'));
+            const selectedCard = document.getElementById(countryId);
+            selectedCard.classList.add('active');
+
+            // Update page title if needed
+            const countryName = countryId.charAt(0).toUpperCase() + countryId.slice(1);
+            document.querySelector('.page-title span').innerText = countryName === 'Romania' || countryName === 'Malaysia' ? 'Serve' : countryName;
+            
+            // Re-render Mermaid if needed
+            if (window.mermaid) {
+                // We need to ensure the element is visible before running
+                setTimeout(() => {
+                    window.mermaid.run({
+                        querySelector: `#${countryId} .mermaid`
+                    });
+                }, 50);
+            }
+
+            // Scroll to the top of the detail section for better UX on mobile
+            const wrapper = document.querySelector('.country-details-wrapper');
+            window.scrollTo({
+                top: wrapper.offsetTop - 120,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
