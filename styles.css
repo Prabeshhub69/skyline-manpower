@@ -890,7 +890,7 @@ h6 {
 .company-stats {
     position: relative;
     padding: 6rem 0;
-    background: url('news_bg_map.jpg') center/cover no-repeat;
+    background: url('images/news_bg_map.jpg') center/cover no-repeat;
     overflow: hidden;
 }
 
@@ -1165,7 +1165,7 @@ h6 {
 /* ===== NEWS SECTION ===== */
 .news {
     position: relative;
-    background-image: url('news_bg_map.jpg');
+    background-image: url('images/news_bg_map.jpg');
     background-size: cover;
     background-position: center;
     background-color: var(--white);
@@ -1560,8 +1560,8 @@ h6 {
 /* ===== ANIMATIONS ===== */
 .fade-in-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-in-up.visible {

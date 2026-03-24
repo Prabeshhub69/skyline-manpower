@@ -77,7 +77,8 @@
             border-color: transparent;
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35); /* Fallback for color-mix if needed */
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35);
+            /* Fallback for color-mix if needed */
         }
 
         .partner-tab.active::before {
@@ -460,7 +461,9 @@
                 <a href="index.html" class="mobile-link">Home</a>
                 <a href="services.html" class="mobile-link">Services</a>
                 <div class="nav-dropdown">
-                    <span class="mobile-link dropdown-toggle" onclick="this.parentElement.classList.toggle('active')">About <i class="fa-solid fa-chevron-down"></i></span>
+                    <span class="mobile-link dropdown-toggle"
+                        onclick="this.parentElement.classList.toggle('active')">About <i
+                            class="fa-solid fa-chevron-down"></i></span>
                     <div class="dropdown-menu">
                         <a href="about.html" class="mobile-link" style="font-size: 1.2rem;">About SkyLine</a>
                         <a href="industries.html" class="mobile-link" style="font-size: 1.2rem;">Industries</a>
@@ -480,96 +483,96 @@
     <section class="hero-wrapper" id="hero-wrapper">
         <div class="hero" id="home">
             <div class="hero-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;"></div>
-        <div id="particles-js" class="particles-container"></div>
+            <div id="particles-js" class="particles-container"></div>
 
-        <div class="container hero-container">
-            <div class="hero-content">
+            <div class="container hero-container">
+                <div class="hero-content">
 
-                <h1 class="hero-title">
-                    Connecting Nepal's Best<br>with <span>Global Opportunities</span>
-                </h1>
+                    <h1 class="hero-title">
+                        Connecting Nepal's Best<br>with <span>Global Opportunities</span>
+                    </h1>
 
-                <!-- <p class="hero-subtitle">
+                    <!-- <p class="hero-subtitle">
                     Based in Kathmandu, we are a leading overseas manpower agency specializing in
                     deploying dedicated Nepali professionals and workers to Qatar, Malaysia, UAE, and Saudi Arabia.
                 </p> -->
 
-                <!-- Search Bar -->
-                <div class="hero-search">
-                    <form action="jobs.html" method="GET" class="search-form" id="heroSearchForm">
-                        <div class="search-input-group">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" name="job_title" placeholder="Job title or keyword" required>
-                        </div>
-                        <div class="search-divider"></div>
-                        <div class="search-input-group">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <select name="industry">
-                                <option value="">Any Industry</option>
-                                <option value="construction">Construction</option>
-                                <option value="hospitality">Hospitality</option>
-                                <option value="healthcare">Healthcare</option>
-                                <option value="oil_gas">Oil & Gas</option>
-                                <option value="security">Security</option>
-                            </select>
-                        </div>
-                        <div class="search-divider"></div>
-                        <div class="search-input-group">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <select name="country">
-                                <option value="">Any Country</option>
-                                <option value="qatar">Qatar</option>
-                                <option value="malaysia">Malaysia</option>
-                                <option value="uae">UAE</option>
-                                <option value="saudi">Saudi Arabia</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary search-btn">Search Jobs</button>
-                    </form>
-                </div>
+                    <!-- Search Bar -->
+                    <div class="hero-search">
+                        <form action="jobs.html" method="GET" class="search-form" id="heroSearchForm">
+                            <div class="search-input-group">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" name="job_title" placeholder="Job title or keyword" required>
+                            </div>
+                            <div class="search-divider"></div>
+                            <div class="search-input-group">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <select name="industry">
+                                    <option value="">Any Industry</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="hospitality">Hospitality</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="oil_gas">Oil & Gas</option>
+                                    <option value="security">Security</option>
+                                </select>
+                            </div>
+                            <div class="search-divider"></div>
+                            <div class="search-input-group">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <select name="country">
+                                    <option value="">Any Country</option>
+                                    <option value="qatar">Qatar</option>
+                                    <option value="malaysia">Malaysia</option>
+                                    <option value="uae">UAE</option>
+                                    <option value="saudi">Saudi Arabia</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary search-btn">Search Jobs</button>
+                        </form>
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Stats for Scroll Animation -->
-    <div class="hero-scrolled-stats">
-        <div class="stats-left">
-            <div class="stat-glass-card stat-left-tilt">
-                <div class="sgc-bg" style="background-image: url('airport.jpg');"></div>
-                <div class="sgc-content">
-                    <i class="fa-solid fa-earth-americas sgc-icon"></i>
-                    <span class="stat-number">4+</span>
-                    <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
+        <!-- Stats for Scroll Animation -->
+        <div class="hero-scrolled-stats">
+            <div class="stats-left">
+                <div class="stat-glass-card stat-left-tilt">
+                    <div class="sgc-bg" style="background-image: url('images/airport.jpg');"></div>
+                    <div class="sgc-content">
+                        <i class="fa-solid fa-earth-americas sgc-icon"></i>
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
+                    </div>
+                </div>
+                <div class="stat-glass-card stat-left-tilt delay-card">
+                    <div class="sgc-bg" style="background-image: url('images/workforce.jpg');"></div>
+                    <div class="sgc-content">
+                        <i class="fa-solid fa-shield-halved sgc-icon"></i>
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Ethical Hiring</span>
+                    </div>
                 </div>
             </div>
-            <div class="stat-glass-card stat-left-tilt delay-card">
-                <div class="sgc-bg" style="background-image: url('workforce.jpg');"></div>
-                <div class="sgc-content">
-                    <i class="fa-solid fa-shield-halved sgc-icon"></i>
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Ethical Hiring</span>
+            <div class="stats-right">
+                <div class="stat-glass-card stat-right-tilt stat-card-large">
+                    <div class="sgc-bg" style="background-image: url('images/workforce.jpg');"></div>
+                    <div class="sgc-content">
+                        <i class="fa-solid fa-users sgc-icon"></i>
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Deployments</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="stats-right">
-            <div class="stat-glass-card stat-right-tilt stat-card-large">
-                <div class="sgc-bg" style="background-image: url('workforce.jpg');"></div>
-                <div class="sgc-content">
-                    <i class="fa-solid fa-users sgc-icon"></i>
-                    <span class="stat-number">10K+</span>
-                    <span class="stat-label">Deployments</span>
-                </div>
-            </div>
-        </div>
-    </div>
     </section>
 
     <!-- About Section -->
     <section class="about section-padding" id="about">
         <div class="container about-container">
             <div class="about-image-wrapper fade-in-up">
-                <img src="workforce.jpg" alt="Skyline Recruitment Team" class="about-img" id="about-img">
+                <img src="images/workforce.jpg" alt="Skyline Recruitment Team" class="about-img" id="about-img">
                 <div class="about-experience">
                     <span class="exp-number">10+</span>
                     <span class="exp-text">Years in<br>Recruitment</span>
@@ -611,7 +614,7 @@
                     </h2>
                     <p class="story-body">
                         It started with a single question: why do the most hardworking people in South Asia have
-                            to navigate a broken, exploitative system just to find <strong>honest</strong> work abroad?
+                        to navigate a broken, exploitative system just to find <strong>honest</strong> work abroad?
                     </p>
                     <p class="story-body">
                         Skyline was founded in Kathmandu — not as a staffing firm, but as a <strong>bridge</strong>. A
@@ -623,7 +626,7 @@
                 <div class="story-image-col fade-in-up delay-200">
                     <div class="story-dots"></div>
                     <div class="story-img-frame">
-                        <img src="airport.jpg" alt="Skyline team at Kathmandu office">
+                        <img src="images/airport.jpg" alt="Skyline team at Kathmandu office">
                         <div class="story-img-overlay"></div>
                         <div class="story-img-badge">
                             <p class="sib-quote">"Every passport we process is someone's dream departing Tribhuvan. We
@@ -717,7 +720,9 @@
                 '</div>';
         }
 
-        selectCategory('construction');
+        document.addEventListener('DOMContentLoaded', function () {
+            selectCategory('construction');
+        });
     </script>
 
     <!-- Job Roles Section -->
@@ -739,7 +744,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #3b82f6;">
                                 <div class="role-image-box">
-                                    <img src="construction.jpg" alt="Construction Jobs" class="role-img">
+                                    <img src="images/construction.jpg" alt="Construction Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Construction</h3>
@@ -754,7 +759,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #f59e0b;">
                                 <div class="role-image-box">
-                                    <img src="hospitality.jpg" alt="Hospitality Jobs" class="role-img">
+                                    <img src="images/hospitality.jpg" alt="Hospitality Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Hospitality</h3>
@@ -769,7 +774,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #ef4444;">
                                 <div class="role-image-box">
-                                    <img src="security.jpg" alt="Security Jobs" class="role-img">
+                                    <img src="images/security.jpg" alt="Security Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Security Services</h3>
@@ -784,7 +789,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #10b981;">
                                 <div class="role-image-box">
-                                    <img src="logisistic.jpg" alt="Logistics Jobs" class="role-img">
+                                    <img src="images/logisistic.jpg" alt="Logistics Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Logistics</h3>
@@ -799,7 +804,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #8b5cf6;">
                                 <div class="role-image-box">
-                                    <img src="hospital.jpg" alt="Healthcare Jobs" class="role-img">
+                                    <img src="images/hospital.jpg" alt="Healthcare Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Healthcare</h3>
@@ -814,7 +819,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #ec4899;">
                                 <div class="role-image-box">
-                                    <img src="technician.jpg" alt="Maintenance Jobs" class="role-img">
+                                    <img src="images/technician.jpg" alt="Maintenance Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Maintenance</h3>
@@ -829,7 +834,7 @@
                         <div class="job-role-card">
                             <div class="role-card-inner" style="--role-color: #6366f1;">
                                 <div class="role-image-box">
-                                    <img src="office.jpg" alt="Office Jobs" class="role-img">
+                                    <img src="images/office.jpg" alt="Office Jobs" class="role-img">
                                 </div>
                                 <div class="role-card-content">
                                     <h3 class="role-name">Office Admin</h3>
@@ -905,8 +910,8 @@
                     <i class="fa-solid fa-helmet-safety"></i>
                     <span>Construction</span>
                 </button>
-                <button class="partner-tab" data-category="it"
-                    style="--tab-color:#6366f1; --tab-color-end:#818cf8;" onclick="selectCategory('it')">
+                <button class="partner-tab" data-category="it" style="--tab-color:#6366f1; --tab-color-end:#818cf8;"
+                    onclick="selectCategory('it')">
                     <i class="fa-solid fa-laptop-code"></i>
                     <span>IT</span>
                 </button>
@@ -938,7 +943,7 @@
             <div class="news-container fade-in-up delay-100">
                 <div class="news-card">
                     <div class="news-image-wrapper">
-                        <img src="workers.jpg" alt="Dubai Office Opening" class="news-img">
+                        <img src="images/workers.jpg" alt="Dubai Office Opening" class="news-img">
                         <div class="news-date">
                             <span class="day">15</span>
                             <span class="month">Mar</span>
@@ -953,7 +958,7 @@
                 </div>
                 <div class="news-card">
                     <div class="news-image-wrapper">
-                        <img src="news_bg_map.jpg" alt="Recruitment Award" class="news-img">
+                        <img src="images/news_bg_map.jpg" alt="Recruitment Award" class="news-img">
                         <div class="news-date">
                             <span class="day">02</span>
                             <span class="month">Feb</span>
@@ -968,7 +973,7 @@
                 </div>
                 <div class="news-card">
                     <div class="news-image-wrapper">
-                        <img src="construction.jpg" alt="Malaysia Resumes Intake" class="news-img">
+                        <img src="images/construction.jpg" alt="Malaysia Resumes Intake" class="news-img">
                         <div class="news-date">
                             <span class="day">18</span>
                             <span class="month">Jan</span>
@@ -1139,10 +1144,10 @@
     <script>
         (function () {
             var images = [
-                'herosection3.jpg',
-                'herosection2.jpg',
-                'herosection1.jpg',
-                'airport.jpg'
+                'images/herosection3.jpg',
+                'images/herosection2.jpg',
+                'images/herosection1.jpg',
+                'images/airport.jpg'
             ];
 
             var current = 0;
